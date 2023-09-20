@@ -1,0 +1,88 @@
+# Here is the complete word search puzzle for the
+# Comedy Movies puzzle. Note that it is larger than
+# the file I distributed with the homework assignment,
+# so you should be able to find many more movies in this one.
+# You might test this file with your homework to see
+# what results you get. I believe you should find every
+# movie except for the last one, "zzzz." That one is
+# in there just for test purposes to see what your program
+# does when it can't find a particular movie.
+
+#rows X cols
+18 18
+
+#the matrix
+SCFRBOBROBERTSLOKL
+TNLESREKCILSYTICRL
+AOEPOBLRUAECHBUDEA
+RITOTHEYOMTOLBATPH
+LTCMWRGIFMLBEEIBEE
+LCHAIBAONILLAURGEI
+AEKNLULDDGCISLHKLN
+MLCTILLAINTAGOLHSN
+AEUDALYCUNZHSYLOSA
+CRRURDBHSAGTEOPLUS
+LOTCLULHLLBPCRAPLA
+UMSKIROPOULALPEAAK
+EHNSAHNNSTLASACCEH
+LSOORADTEHSHBKCROA
+EUOUFMEMECOHETHEER
+SRMPARTRBTAROSAASV
+SLEISTOOTHERUTLESE
+NATTAHNAMSEYSLSSMY
+
+#Movie Titles to Search For
+ALL OF ME
+ANNIE HALL
+BABE
+BEING THERE
+BIG
+BOB ROBERTS
+BULL DURHAM
+CARS
+CATBALLOU
+CITYSLICKERS
+CLERKS
+CLUELESS
+DUCK SOUP
+ELECTION
+FLETCH
+GHOSTBUSTERS
+HAPPY GILMORE
+HARVEY
+HOLIDAY
+HOTSHOTS
+LEGALLY BLONDE
+Liar Liar
+LOCAL HERO
+MALLRATS
+MANHATTAN
+MEATBALLS
+MOONSTRUCK
+NAPOLEAN DYNAMITE
+OH GOD
+PLAZA SUITE
+RAISING ARIZONA
+Repo Man
+RUSHMORE
+#note that I can have comments anywhere in the data file
+SHREK
+SLACKER
+SLAP SHOT
+SLEEPER
+THE BELL BOY
+THE RUTLES
+TOOTSIE
+TRADING PLACES
+UNCLE BUCK
+YES MAN
+Zzzzz
+
+
+#And here's one little palindrome for testing.
+#It's a movie title not of a comedy but of a very famous
+#robot movie. Your program might find it twice depending...
+RUR
+
+
+

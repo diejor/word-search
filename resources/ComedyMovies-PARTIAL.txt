@@ -1,0 +1,44 @@
+# Here is a partial set of the word search puzzle for the
+# Comedy Movies puzzle. 
+# You might test this file with your homework to see
+# what results you get. I believe you should find every
+# movie except for the last one, "zzzz." That one is
+# in there just for test purposes to see what your program
+# does when it can't find a particular movie.
+# Don't forget to always convert the titles to the proper case.
+
+#rows X cols
+18 18
+
+#the matrix
+SCFRBOBROBERTSLOKL
+TNLESREKCILSYTICRL
+AOEPOBLRUAECHBUDEA
+RITOTHEYOMTOLBATPH
+LTCMWRGIFMLBEEIBEE
+LCHAIBAONILLAURGEI
+AEKNLULDDGCISLHKLN
+MLCTILLAINTAGOLHSN
+AEUDALYCUNZHSYLOSA
+CRRURDBHSAGTEOPLUS
+LOTCLULHLLBPCRAPLA
+UMSKIROPOULALPEAAK
+EHNSAHNNSTLASACCEH
+LSOORADTEHSHBKCROA
+EUOUFMEMECOHETHEER
+SRMPARTRBTAROSAASV
+SLEISTOOTHERUTLESE
+NATTAHNAMSEYSLSSMY
+
+#Movie Titles to Search For
+ALL OF ME
+ANNIE HALL
+Babe
+BEING THERE
+Zzzzz
+
+#end
+
+
+
+
