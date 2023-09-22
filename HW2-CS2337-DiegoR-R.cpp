@@ -3,7 +3,7 @@
     Diego R.R.
     09/20/2023
     CS2337.501
-    A snake game that runs in the console.
+    A program that searches words from a soup of letters
     Changelog: 
         09/20/2023 - project started
     Notes:

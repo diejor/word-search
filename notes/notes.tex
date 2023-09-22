@@ -1,0 +1,60 @@
+\documentclass{extarticle}
+
+\usepackage{listings} % To include source code
+\usepackage{xspace} % To avoid problems with missing spaces after predefined symbols    
+
+\author{Diego R.R.}
+\title{Word Search Program Notes}
+\date{\today}
+
+\newcommand{\code}[1]{$#1$} % command to write c++ code in text
+\newcommand{\prgmtitle}{\textit{word-search}\xspace} % predefined program title
+
+\begin{document}
+\maketitle
+
+\section{Program Description}
+The \prgmtitle is a program in c++ that solves the problem of searching
+words in a soup of characters. The \textit{soup} is defined as a matrix
+of characters of size $N \times M$, or equivalently in c++, \code{char[N][M]}. The words
+to be searched are movie titles given as a vector of strings: \code{vector<strings> movies\_in\_soup}. 
+Then the words are searched in the soup and the program will know which movies are in the soup and which are not.
+
+\section{Program Structure}
+\prgmtitle will be divided in the following parts:
+    \begin{enumerate}
+        \item The input loader
+        \item The parser.
+        \item The solver.
+        \item The output handler.
+    \end{enumerate}
+
+\subsection{Input Loader}
+The input loader will define how input is handled and introduced.
+For the moment the case considered would be the input given as a \code{string}
+in \code{cin}
+
+\section{Input File Format}
+The word-search program will have as input .txt files and potentially user-typed movie titles.
+But in priory, the input will be a .txt file given as a \code{string}. Input files are assumed
+to be already included in the same directory as the program. The format of the .txt file
+will be as follows:
+    \begin{enumerate}
+        \item The first block is a single line with a pair of numbers $N$ and $M$ separated by a space. 
+        $N$ is the number of rows and $M$ is the number of columns.
+        \item The second block is a matrix of $N$ rows and $M$ columns with the letters of the word search.
+        \item The third block is a list of words to be searched in the matrix.
+    \end{enumerate}
+Now consider that the file may have comment lines anywhere including
+inside the blocks of inputs. Comment lines should be treated as if the 
+parser had never seen them.
+
+I will define the parser to be a set of functions that will take
+as input the .txt file and will return all the useful information
+interpretet as c++ data types. Such information could be:
+    \begin{enumerate}
+        \item The entry size of the matrix $N$ and $M$.
+        \item The declaration of the characters of the matrix. 
+        \item The list of words to be searched.
+    \end{enumerate}
+\end{document}
