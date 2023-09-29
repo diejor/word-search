@@ -17,34 +17,67 @@
 
 using namespace std;
 
-// =---------   GLOBAL FUNCTIONS   ---------=
+// =---------   GLOBAL DEFINITIONS   ---------=
 namespace global {
 
+    /// @brief Valid extensions module to validate file extensions.
+    namespace valid_extensions {
+
+        /// @brief Valid extensions for the input file.
+        const string EXTENSIONS[] = {
+            "txt"
+        };
+
+        /// @brief Checks if the input file name has the extension provided.
+        bool has(string input_file_name, string extension) {
+            return input_file_name.substr(input_file_name.find_last_of(".") + 1) ==
+                extension;
+        }
+
+        /// @brief Checks if the input file name has a valid extension.
+        bool has(string intput_file_name) {
+            bool has_valid_extension = false;
+            for (string extension : EXTENSIONS) {
+                if (has(intput_file_name, extension)) {
+                    has_valid_extension = true;
+                    break;
+                }
+            }
+            return has_valid_extension;
+        }
+    } // end namespace valid_extensions
+
+    /// @brief  Global messages 
     namespace msgs {
         const string WELCOME = "Welcome to the Movie Title Searcher!";
     }
 
+    /// @brief Show a message without a new line.
     void show_msg_noline(string msg) {
         cout << msg;
     }
 
+    /// @brief Show a message with a new line.
     void show_msg(string msg) {
         cout << msg << endl;
     }
+
+    /// @brief Show a message with a new line.
     void show_msg(string msg, string msg2) {
         cout << msg << msg2 << endl;
     }
 
+    /// @brief Show a message with a two new lines.
     void show_msg_dobleline(string msg) {
         cout << msg << endl << endl;
     }
 
+    /// @brief Show a message with a two new lines.
     void show_msg_dobleline(string msg, string msg2) {
         cout << msg << msg2 << endl << endl;
     }
 
-    /// @brief A function to check if a string listed in a vector.
-    /// @return true if the string is in the vector, false otherwise
+    /// @brief Checks if a string is listed in a vector.
     bool is_str_in_vector(string str, vector<string> v) {
         bool is_in_v = false;
         for (string str_in_v : v) {
@@ -57,9 +90,6 @@ namespace global {
     }
 
     /// @brief A function that returns the difference between two vectors of strings. It is used to find the movie titles that were not found.
-    /// @param v1 the vector to be substracted from v2
-    /// @param v2 the vector to substract v1 from
-    /// @return the new vector of strings representing v1 - v2
     vector<string> difference(vector<string> v1, vector<string> v2) {
         vector<string> difference;
         for (string str_in_v1 : v1) {
@@ -69,7 +99,66 @@ namespace global {
         }
         return difference;
     }
+
+    
+
+    /// @brief Handling error module. Errors are comprehended as expected errors and failure errors. Failure errors are normally when the program creates a perror (e.i. when the program fails to open a file) such errors are possible to recover from and the program can continue to run. Expected errors are errors that are expected to happen and the program can recover more easily. For example, if the user enters an invalid file extension, the program can ask the user to enter the file name again.
+    namespace error {
+        namespace msgs {
+            const string INVALID_EXTENSION = "Invalid file extension. Enter one of the following extensions: ";
+            const string PROGRAM_FAILED = "The program got the following error: ";
+        }
+
+        /// @brief Error function for a string that doesn't has a valid extension.
+        void file_extension(string input_file_name) {
+            show_msg(msgs::INVALID_EXTENSION, " ");
+            // show possible valid extensions
+            for (string valid_extension : valid_extensions::EXTENSIONS) {
+                show_msg(valid_extension, " ");
+            }
+            cout << endl;
+        }
+
+        /// @brief Error function for a file that couldn't be opened.
+        void failed_opening_file(string input_file_name) {
+            perror(msgs::PROGRAM_FAILED.c_str());
+        }
+    }
+
+
+
+    /// @brief Debug module.
+    namespace debug {
+
+        // debug flags, if true the program will show debug messages
+        namespace flags {
+            const bool USER_INPUT = true; 
+            const bool TRY_OPEN_FILE = true;
+            const bool TRIM_WHITESPACE = false;
+        }
+
+        void user_input(string input_file_name) {
+            if (flags::USER_INPUT) {
+                show_msg("DEBUG: user input: ", input_file_name);
+            }
+        }
+
+        void open_file(string input_file_name) {
+            if (flags::TRY_OPEN_FILE) {
+                show_msg("DEBUG: trying to open file: ", input_file_name);
+            }
+        }
+
+        void trim_whitespace(string input_file_name, int first_whspace_idx, int last_whspace_idx, string trimmed_input_file_name) {
+            if (flags::TRIM_WHITESPACE) {
+                show_msg("DEBUG: trimming whitespace from: ", input_file_name);
+                show_msg("DEBUG: first whitespace index: ", to_string(first_whspace_idx));
+                show_msg("DEBUG: last whitespace index: ", to_string(last_whspace_idx));
+                show_msg("DEBUG: trimmed input file name: ", trimmed_input_file_name);
+            }
+        }
+    } // end namespace debug
 }
-// =---------  END OF GLOBAL FUNCTIONS   ---------=
+// =--------- END OF GLOBAL DEFINITIONS ---------=
 
 #endif // GLOBAL_HPP

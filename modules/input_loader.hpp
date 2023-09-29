@@ -15,12 +15,10 @@
 #include <string>
 #include <vector>
 
-#include "debug.hpp"
-#include "error.hpp"
 #include "global.hpp"
-#include "valid_extensions.hpp"
 
 using namespace std;
+using namespace global;
 
 namespace input_loader {
 
@@ -47,7 +45,7 @@ namespace input_loader {
     string get_file_name_validated() {
         string input_file_name;
         do {
-            global::show_msg_noline(msgs::ENTER_FILE_NAME);
+            show_msg_noline(msgs::ENTER_FILE_NAME);
 
             // user input without whitespaces
             input_file_name = get_user_input();
@@ -82,10 +80,6 @@ namespace input_loader {
         input_file = try_open_file(input_file_name);
         return input_file;
     }
-
-
-
-
 } // namespace input_loader
 
 #endif // INPUT_LOADER_HPP
