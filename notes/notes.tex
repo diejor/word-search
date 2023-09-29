@@ -14,11 +14,7 @@
 \maketitle
 
 \section{Program Description}
-The \prgmtitle is a program in c++ that solves the problem of searching
-words in a soup of characters. The \textit{soup} is defined as a matrix
-of characters of size $N \times M$, or equivalently in c++, \code{char[N][M]}. The words
-to be searched are movie titles given as a vector of strings: \code{vector<strings> movies\_in\_soup}. 
-Then the words are searched in the soup and the program will know which movies are in the soup and which are not.
+The \prgmtitle is a program in c++ that solves the problem of searching words in a soup of characters. The \textit{soup} is defined as a matrix of characters of size $N \times M$, or equivalently in c++, \code{char[N][M]}. The words to be searched are movie titles given as \code{vector<strings>}. Then the words are searched in the soup and the program will know which movies are in the soup and which are not.
 
 \section{Program Structure}
 \prgmtitle will be divided in the following parts:
@@ -30,31 +26,28 @@ Then the words are searched in the soup and the program will know which movies a
     \end{enumerate}
 
 \subsection{Input Loader}
-The input loader will define how input is handled and introduced.
-For the moment the case considered would be the input given as a \code{string}
-in \code{cin}
+The input loader will define how input is handled and introduced to the program. For the moment, the case considered will be the input given as a \code{string} in \code{cin} which represents the name of the .txt file, and is assumed to be located in the same directory as of the program. Other potential inputs could be a user-typed movie title, a \code{path} to a .txt file, or a initialization of a .txt file with multiple movie titles typed by the user thorugh the console.
 
-\section{Input File Format}
-The word-search program will have as input .txt files and potentially user-typed movie titles.
-But in priory, the input will be a .txt file given as a \code{string}. Input files are assumed
-to be already included in the same directory as the program. The format of the .txt file
-will be as follows:
+\subsection{Parser}
+The parser will be a collection of functions that take an ifstream to process the input file until all the information is stored as c++ data types. The parser have to consider multiple cases in order to collect the data correctly. For that reason let me define the input file format first.
+
+\subsubsection{Input File Format}
+The format of the .txt file will be as follows:
     \begin{enumerate}
-        \item The first block is a single line with a pair of numbers $N$ and $M$ separated by a space. 
-        $N$ is the number of rows and $M$ is the number of columns.
-        \item The second block is a matrix of $N$ rows and $M$ columns with the letters of the word search.
+        \item The first block is a single line with a pair of numbers $N$ and $M$ separated by a space. $N$ is the number of rows and $M$ is the number of columns.
+        \item The second block is a \code{char} matrix of $N$ rows and $M$ columns.
         \item The third block is a list of words to be searched in the matrix.
     \end{enumerate}
-Now consider that the file may have comment lines anywhere including
-inside the blocks of inputs. Comment lines should be treated as if the 
-parser had never seen them.
+Now consider that the file may have comment lines anywhere including inside the blocks of inputs. Comment lines should be treated as if the parser had never seen them.
 
-I will define the parser to be a set of functions that will take
-as input the .txt file and will return all the useful information
-interpretet as c++ data types. Such information could be:
+\subsubsection{Parser Definition}
+I will define the parser to be a set of functions that will take as input the .txt file and will return all the useful information interpretet as c++ data types. Such information could be:
     \begin{enumerate}
-        \item The entry size of the matrix $N$ and $M$.
-        \item The declaration of the characters of the matrix. 
-        \item The list of words to be searched.
+        \item The entry size of the matrix $N$ and $M$: \code{const int N, M}.
+        \item The declaration of the characters of the matrix: \code{char[N][M]}.
+        \item The list of words to be searched: \code{vector<string>}.
     \end{enumerate}
 \end{document}
+
+\subsection{Solver}
+Despite being what glues everything together, the solver will be presumably the simplest part of the program. It will take the previously stored matrix of characters by the parser, and search for each movie title if it is as a string in the matrix. After reading all the movie titles, it should have created two vectors of strings, one with the movies found and another with the movies not found.  
