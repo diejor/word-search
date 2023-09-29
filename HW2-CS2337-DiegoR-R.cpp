@@ -17,10 +17,10 @@
 #include <string>
 #include <vector>
 
-#include "modules/global.hpp"
-#include "modules/input_loader.hpp"
-#include "modules/parser.hpp"
-#include "modules/output_handler.hpp"
+#include "global.hpp"
+#include "input_loader.hpp"
+#include "parser.hpp"
+#include "output_handler.hpp"
 
 using namespace std;
 
