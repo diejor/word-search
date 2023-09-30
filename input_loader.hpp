@@ -27,19 +27,12 @@ namespace input_loader {
         const string ENTER_FILE_NAME_AGAIN = "enter file name again: ";
     }
 
-    string trim_whitespace(string str) {
-        int first = str.find_first_not_of(' ');
-        int last = str.find_last_not_of(' ');
-        string trimmed_str = str.substr(first, (last - first + 1));
-        debug::trim_whitespace(str, first, last, trimmed_str);
-        return trimmed_str;
-    }
 
     string get_user_input() {
         string input;
         getline(cin, input);
-        // input string returned without whitespaces
-        return trim_whitespace(input);
+        string no_leading_preceding_whitespace = global::trim_whitespace(input);
+        return no_leading_preceding_whitespace;
     }
 
     string get_file_name_validated() {
@@ -49,11 +42,8 @@ namespace input_loader {
 
             // user input without whitespaces
             input_file_name = get_user_input();
-
-            // user input debug without whitespaces
             debug::user_input(input_file_name);
 
-            // expected error 
             if (!valid_extensions::has(input_file_name))
                 error::file_extension(input_file_name);
         } while (!valid_extensions::has(input_file_name));
