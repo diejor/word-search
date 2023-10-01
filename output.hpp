@@ -1,11 +1,8 @@
 /*
-    * output_handler.hpp
     * Diego R.R.
     * started: 09/28/2023
     * CS2337.501
     * functions used to handle output
-    * changelog:
-        - 09/29/2023 - header file created
 */
 
 #ifndef OUTPUT_HANDLER_HPP
@@ -17,7 +14,7 @@
 
 using namespace std;
 
-namespace output_handler {
+namespace output {
 
     void show_results(vector<string> movie_titles_found, vector<string> movie_titles_not_found) {
         cout << "Movie titles found: " << endl;

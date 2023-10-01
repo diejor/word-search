@@ -19,9 +19,17 @@ using namespace std;
 
 // =---------   GLOBAL DEFINITIONS   ---------=
 namespace global {
-    /// @brief  Global messages 
+    // =-------------- MESSAGES ---------------=
     namespace msgs {
         const string WELCOME = "Welcome to the Movie Title Searcher!";
+
+        // input
+        const string ENTER_FILE_NAME = "enter file name: ";
+        const string ENTER_FILE_NAME_AGAIN = "enter file name again: ";
+
+        // error
+        const string INVALID_EXTENSION = "Invalid file extension. Enter one of the following extensions: ";
+        const string PROGRAM_FAILED = "The program got the following error: ";
     }
 
     /// @brief Show a message without a new line.
@@ -48,10 +56,11 @@ namespace global {
     void show_msg_dobleline(string msg, string msg2) {
         cout << msg << msg2 << endl << endl;
     }
+    // =------------ END OF MESSAGES ------------=
 
 
 
-    /// @brief Valid extensions module to validate file extensions.
+    // =--------------- EXTENSIONS DEFINITIONS ---------------=
     namespace valid_extensions {
 
         /// @brief Valid extensions for the input file.
@@ -77,25 +86,39 @@ namespace global {
             return has_valid_extension;
         }
     } // end namespace valid_extensions
+    // =--------------- EXTENSIONS DEFINITIONS ---------------=
 
 
 
-    /// @brief Debug module.
+    // =----------------- DEBUG DEFINITIONS ----------------------=
     namespace debug {
 
         // debug flags, if true the program will show debug messages
         namespace flags {
+            const bool FLOW_CONTROL = true;
+
             // input loader flags
-            const bool USER_INPUT = true; 
-            const bool TRY_OPEN_FILE = true;
+            const bool USER_INPUT = false; 
+            const bool TRY_OPEN_FILE = false;
             const bool TRIM_WHITESPACE = false;
-            const bool IGNORING_COMMENT_LINE = true;
 
             // parser flags
             const bool EMPTY_FILE = true;
             const bool TOKEN_LINE = true;
+            const bool IGNORING_COMMENT_LINE = true;
             const bool SOUP_OF_LETTERS = true;
             const bool MOVIE_TITLES_TO_SEARCH = true;
+
+            // word searcher flags
+            const bool MOVIE_TITLE_FORMATTED = false;
+            const bool MOVIE_TITLE_FOUND = false;
+            const bool MOVIE_TITLE_NOT_FOUND = false;
+        }
+
+        void flow_control(string function_str) {
+            if (flags::FLOW_CONTROL) {
+                show_msg("DEBUG: calling: ", function_str);
+            }
         }
 
         void user_input(string input_file_name) {
@@ -157,23 +180,35 @@ namespace global {
                 }
             }
         }
-    } // end namespace debug
 
-
-
-    /// @brief Handling error module. Errors are comprehended as expected errors and failure errors. Failure errors are normally when the program creates a perror (e.i. when the program fails to open a file) such errors are possible to recover from and the program can continue to run. Expected errors are errors that are expected to happen and the program can recover more easily. For example, if the user enters an invalid file extension, the program can ask the user to enter the file name again.
-    namespace error {
-        namespace msgs {
-            const string INVALID_EXTENSION = "Invalid file extension. Enter one of the following extensions: ";
-            const string PROGRAM_FAILED = "The program got the following error: ";
+        void movie_title_formatted(string movie_title, string movie_title_formatted) {
+            if (flags::MOVIE_TITLE_FORMATTED) {
+                show_msg("DEBUG: movie title: ", movie_title);
+                show_msg("DEBUG: movie title formatted: ", movie_title_formatted);
+            }
         }
 
-        enum class ErrorType {
-            EXPECTED,
-            FAILURE
-        };
+        void movie_title_result (string result, string not_found_condition) {
+            if (flags::MOVIE_TITLE_FOUND) {
+                if (result != not_found_condition) {
+                    show_msg("DEBUG: movie title found: ", result);
+                }
+                else {
+                    show_msg("DEBUG: movie title not found: ", result);
+                }
+            }
+        }
+    } // end namespace debug
+    // =--------- END OF DEBUG DEFINITIONS ---------=
 
-        /// @brief Error function for a string that doesn't has a valid extension.
+
+
+    // =----------------- ERROR HANDLING -----------------=
+    namespace error {
+
+        /*
+            Called when input::get_file_name_validated() receives an invalid file extension from the user. Hence we have to show the user the valid extensions.
+        */
         void file_extension(string input_file_name) {
             show_msg(msgs::INVALID_EXTENSION, " ");
             // show possible valid extensions
@@ -183,17 +218,29 @@ namespace global {
             cout << endl;
         }
 
-        /// @brief Error function for a file that couldn't be opened.
-        void failed_opening_file(string input_file_name) {
+        /*
+            Called when input::try_open_file() fails to open the file because the file doesn't exists in the current directory.
+        */
+        void opening_file(string input_file_name) {
             perror(msgs::PROGRAM_FAILED.c_str());
         }
 
+        /*
+            Called when parser::get_next_token_line() receives an empty file when it should have content (see more details of the error in the function documentation).
+        */
         void empty_file() {
             show_msg("The file is empty when expected to have content.");
         }
     }
+    // =--------------- END OF ERROR HANDLING ---------------=
 
-    /// @brief Checks if a string is listed in a vector.
+
+
+    // =----------------- GLOBAL HELPER FUNCTIONS -----------------=
+
+    /*
+        Helper fuction of difference function.
+    */
     bool is_str_in_vector(string str, vector<string> v) {
         bool is_in_v = false;
         for (string str_in_v : v) {
@@ -205,7 +252,9 @@ namespace global {
         return is_in_v;
     }
 
-    /// @brief A function that returns the difference between two vectors of strings. It is used to find the movie titles that were not found.
+    /*
+        Used to find the movies titles that were not found in the soup of letters.
+    */
     vector<string> difference(vector<string> v1, vector<string> v2) {
         vector<string> difference;
         for (string str_in_v1 : v1) {
@@ -216,6 +265,9 @@ namespace global {
         return difference;
     }
 
+    /*
+        Used to trim leading and trailing whitespaces from the user input.
+    */
     string trim_whitespace(string str) {
         int first = str.find_first_not_of(' ');
         int last = str.find_last_not_of(' ');
@@ -224,6 +276,7 @@ namespace global {
         return trimmed_str;
     }
 
+    // =--------------- END OF HELPER FUNCTIONS ----------------=
 }
 // =--------- END OF GLOBAL DEFINITIONS ---------=
 
