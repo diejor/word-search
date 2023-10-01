@@ -9,6 +9,8 @@
         09/22/2023 - notes of the project added
         09/24/2023 - bottom-up design of the project started
         09/28/2023 - header files created
+        09/29/2023 - parser.cpp defined
+        09/30/2023 - search.cpp defined
     Notes:
 */
 
@@ -18,9 +20,10 @@
 #include <vector>
 
 #include "global.hpp"
-#include "input_loader.hpp"
+#include "input.hpp"
 #include "parser.hpp"
-#include "output_handler.hpp"
+#include "search.hpp"
+#include "output.hpp"
 
 using namespace std;
 
@@ -49,19 +52,19 @@ void finalize_word_search() {
 
 // =---------- RUN PROGRAM ----------=
 
-vector<string> movie_title_searcher(vector<vector<char>> soup_of_letters, vector<string> movie_titles_to_search) {
-    return vector<string>();
-}
 
 void run_program() {
-    ifstream input_file = input_loader::get_input_file();
+    ifstream input_file = input::get_input_file();
 
+    parser::assert_non_empty_file(input_file);
     vector<vector<char>> soup_of_letters = parser::soup_letter(input_file);
+    parser::assert_non_empty_file(input_file); // assume that the file is not empty
     vector<string> movie_titles_to_search = parser::movie_titles_to_search(input_file);
+    debug::movie_titles_to_search(movie_titles_to_search);
 
-    vector<string> movie_titles_found = movie_title_searcher(soup_of_letters, movie_titles_to_search);
+    vector<string> movie_titles_found = search::movie_title_searcher(soup_of_letters, movie_titles_to_search);
     vector<string> movie_titles_not_found = global::difference(movie_titles_to_search, movie_titles_found);
-    output_handler::show_results(movie_titles_found, movie_titles_not_found);
+    output::show_results(movie_titles_found, movie_titles_not_found);
 }
 
 // =---------- END OF RUN PROGRAM ----------=
