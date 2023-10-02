@@ -257,8 +257,8 @@ bool is_possible_direction(Direction direction_to_check, int row, int col,
     int row_dir = get_row(dir);
     int col_dir = get_col(dir);
 
-    int row_to_check = row + row_dir * movie_title_size;
-    int col_to_check = col + col_dir * movie_title_size;
+    int row_to_check = row + row_dir * (movie_title_size - 1);
+    int col_to_check = col + col_dir * (movie_title_size - 1);
     return in_range(row_to_check, col_to_check, num_rows, num_cols);
 }
 
