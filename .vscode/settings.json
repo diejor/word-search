@@ -7,6 +7,9 @@
         "iostream": "cpp",
         "string": "cpp",
         "ostream": "cpp",
-        "istream": "cpp"
+        "istream": "cpp",
+        "tuple": "cpp",
+        "ios": "cpp",
+        "iomanip": "cpp"
     }
 }
