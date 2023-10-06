@@ -14,6 +14,7 @@
 #include <string>
 #include <iostream>
 #include <vector>
+#include <tuple>
 
 using namespace std;
 
@@ -24,37 +25,45 @@ namespace global {
         const string WELCOME = "Welcome to the Movie Title Searcher!";
 
         // input
-        const string ENTER_FILE_NAME = "enter file name: ";
-        const string ENTER_FILE_NAME_AGAIN = "enter file name again: ";
+        const string ENTER_FILE_NAME = "* enter file name: ";
+        const string ENTER_FILE_NAME_AGAIN = "* enter file name again: ";
+        const string USING_FILE = "* using file: ";
 
         // error
         const string INVALID_EXTENSION = "Invalid file extension. Enter one of the following extensions: ";
         const string PROGRAM_FAILED = "The program got the following error: ";
+
+        const string ANOTHER_SEARCH = "Do you want to search for another movie title? (yes/no): ";
+        const string INVALID_ANSWER = "Sorry I couldn't understand your answer.";
+        const string GOODBYE = "Thank you for using this word-search program!";
     }
 
-    /// @brief Show a message without a new line.
     void show_msg_noline(string msg) {
         cout << msg;
     }
 
-    /// @brief Show a message with a new line.
+    void show_msg_noline(string msg, string msg2) {
+        cout << msg << msg2;
+    }
+
     void show_msg(string msg) {
         cout << msg << endl;
     }
 
-    /// @brief Show a message with a new line.
     void show_msg(string msg, string msg2) {
         cout << msg << msg2 << endl;
     }
 
-    /// @brief Show a message with a two new lines.
     void show_msg_dobleline(string msg) {
         cout << msg << endl << endl;
     }
 
-    /// @brief Show a message with a two new lines.
     void show_msg_dobleline(string msg, string msg2) {
         cout << msg << msg2 << endl << endl;
+    }
+
+    string format_result(int row, int col, string direction) {
+        return "row:" + to_string(row+1) + ", col:" + to_string(col+1) + " along " + direction;
     }
     // =------------ END OF MESSAGES ------------=
 
@@ -95,7 +104,10 @@ namespace global {
 
         // debug flags, if true the program will show debug messages
         namespace flags {
-            const bool FLOW_CONTROL = true;
+            const bool CONTROL_FLOW = true;
+
+            // global functions
+            const bool ADDING_TO_DIFFERENCE = false;
 
             // input loader flags
             const bool USER_INPUT = false; 
@@ -103,21 +115,38 @@ namespace global {
             const bool TRIM_WHITESPACE = false;
 
             // parser flags
-            const bool EMPTY_FILE = true;
-            const bool TOKEN_LINE = true;
-            const bool IGNORING_COMMENT_LINE = true;
-            const bool SOUP_OF_LETTERS = true;
-            const bool MOVIE_TITLES_TO_SEARCH = true;
+            const bool EMPTY_FILE = false;
+            const bool TOKEN_LINE = false;
+            const bool IGNORING_COMMENT_LINE = false;
+            const bool SOUP_OF_LETTERS_DIM = false;
+            const bool SOUP_OF_LETTERS = false;
+            const bool MOVIE_TITLES_TO_SEARCH = false;
 
             // word searcher flags
             const bool MOVIE_TITLE_FORMATTED = false;
             const bool MOVIE_TITLE_FOUND = false;
             const bool MOVIE_TITLE_NOT_FOUND = false;
+            const bool SEARCH_LOC_STATE = false;
+            const bool SEARCH_DIR_STATE = false;
         }
 
-        void flow_control(string function_str) {
-            if (flags::FLOW_CONTROL) {
+        void control_flow(string function_str) {
+            if (flags::CONTROL_FLOW) {
                 show_msg("DEBUG: calling: ", function_str);
+            }
+        }
+
+        void control_flow(string function_str, string msg) {
+            if (flags::CONTROL_FLOW) {
+                show_msg_noline("DEBUG: calling: ", function_str);
+                show_msg(" with msg: ", msg);
+            }
+        }
+
+        void control_flow(string function_str, char ch) {
+            if (flags::CONTROL_FLOW) {
+                show_msg_noline("DEBUG: calling: ", function_str);
+                show_msg(" with char: ", string(1, ch));
             }
         }
 
@@ -160,6 +189,12 @@ namespace global {
             }
         }
 
+        void soup_of_letters_dim(int rows, int cols) {
+            if (flags::SOUP_OF_LETTERS_DIM) {
+                show_msg("DEBUG: soup of letters dimensions: ", to_string(rows) + "x" + to_string(cols));
+            }
+        }
+
         void soup_of_letters(vector<vector<char>> soup_of_letters) {
             if (flags::SOUP_OF_LETTERS) {
                 show_msg("DEBUG: soup of letters: ");
@@ -175,27 +210,55 @@ namespace global {
         void movie_titles_to_search(vector<string> movie_titles_to_search) {
             if (flags::MOVIE_TITLES_TO_SEARCH) {
                 show_msg("DEBUG: vector of movie titles to search: ");
-                for (string movie_title : movie_titles_to_search) {
-                    show_msg(movie_title);
+                for (string movie : movie_titles_to_search) {
+                    show_msg(movie);
                 }
             }
         }
 
-        void movie_title_formatted(string movie_title, string movie_title_formatted) {
+        void movie_title_formatted(string movie, string movie_title_formatted) {
             if (flags::MOVIE_TITLE_FORMATTED) {
-                show_msg("DEBUG: movie title: ", movie_title);
-                show_msg("DEBUG: movie title formatted: ", movie_title_formatted);
+                show_msg("DEBUG: movie movie: ", movie);
+                show_msg("DEBUG: movie movie formatted: ", movie_title_formatted);
             }
         }
 
-        void movie_title_result (string result, string not_found_condition) {
+        void search_step(string movie) {
+            show_msg_noline("DEBUG: searching for movie movie: ", movie);
+        }
+
+
+        void search_loc_step(int row, int col, string movie) {
+            if (flags::SEARCH_LOC_STATE) {
+                search_step(movie);
+                show_msg(" at ", to_string(row) + ", " + to_string(col));
+            }
+        }
+
+        void search_dir_step(string direction, string movie) {
+            if (flags::SEARCH_DIR_STATE) {
+                search_step(movie);
+                show_msg(" along ", direction);
+            }
+        }
+
+        void movie_found(string movie, int row, int col, string direction) {
             if (flags::MOVIE_TITLE_FOUND) {
-                if (result != not_found_condition) {
-                    show_msg("DEBUG: movie title found: ", result);
-                }
-                else {
-                    show_msg("DEBUG: movie title not found: ", result);
-                }
+                show_msg_noline("DEBUG: search result: ", movie);
+                show_msg(" found at ", format_result(row, col, direction));
+            }
+        }
+
+        void movie_not_found(string movie) {
+            if (flags::MOVIE_TITLE_NOT_FOUND) {
+                show_msg_noline("DEBUG: search result: ", movie);
+                show_msg(" not found");
+            }
+        }
+
+        void adding_to_difference(string movie) {
+            if (flags::ADDING_TO_DIFFERENCE) {
+                show_msg("DEBUG: adding to difference: ", movie);
             }
         }
     } // end namespace debug
@@ -209,7 +272,7 @@ namespace global {
         /*
             Called when input::get_file_name_validated() receives an invalid file extension from the user. Hence we have to show the user the valid extensions.
         */
-        void file_extension(string input_file_name) {
+        void file_extension() {
             show_msg(msgs::INVALID_EXTENSION, " ");
             // show possible valid extensions
             for (string valid_extension : valid_extensions::EXTENSIONS) {
@@ -221,7 +284,7 @@ namespace global {
         /*
             Called when input::try_open_file() fails to open the file because the file doesn't exists in the current directory.
         */
-        void opening_file(string input_file_name) {
+        void opening_file() {
             perror(msgs::PROGRAM_FAILED.c_str());
         }
 
@@ -231,9 +294,12 @@ namespace global {
         void empty_file() {
             show_msg("The file is empty when expected to have content.");
         }
+
+        void not_tuple() {
+            show_msg("The vector is not a tuple");
+        }
     }
     // =--------------- END OF ERROR HANDLING ---------------=
-
 
 
     // =----------------- GLOBAL HELPER FUNCTIONS -----------------=
@@ -259,6 +325,7 @@ namespace global {
         vector<string> difference;
         for (string str_in_v1 : v1) {
             if (!is_str_in_vector(str_in_v1, v2)) {
+                debug::adding_to_difference(str_in_v1);
                 difference.push_back(str_in_v1);
             }
         }
@@ -274,6 +341,18 @@ namespace global {
         string trimmed_str = str.substr(first, (last - first + 1));
         debug::trim_whitespace(str, first, last, trimmed_str);
         return trimmed_str;
+    }
+
+    string to_lower(string str) {
+        string lower_case_str = "";
+        for (char ch : str) {
+            lower_case_str += tolower(ch);
+        }
+        return lower_case_str;
+    }
+
+    bool contains(string str, string regex) {
+        return str.find(regex) != string::npos;
     }
 
     // =--------------- END OF HELPER FUNCTIONS ----------------=
