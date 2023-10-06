@@ -2,11 +2,10 @@
     "tasks": [
         {
             "type": "cppbuild",
-            "label": "C/C++: clang++.exe build active file",
-            "command": "C:\\Program Files\\LLVM\\bin\\clang++.exe",
+            "label": "C/C++: g++.exe build active file",
+            "command": "C:\\MinGW\\bin\\g++.exe",
             "args": [
-                "-fcolor-diagnostics",
-                "-fansi-escape-codes",
+                "-fdiagnostics-color=always",
                 "-g",
                 "${file}",
                 "-o",
