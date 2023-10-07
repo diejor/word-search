@@ -4,8 +4,8 @@
 #include <string>
 #include <vector>
 
-#include "../include/global.hpp"
-#include "../include/input.hpp"
+#include "global.hpp"
+#include "input.hpp"
 
 using namespace std;
 using namespace input;

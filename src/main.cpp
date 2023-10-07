@@ -21,11 +21,11 @@
 #include <string>
 #include <vector>
 
-#include "../include/global.hpp"
-#include "../include/input.hpp"
-#include "../include/output.hpp"
-#include "../include/parser.hpp"
-#include "../include/search.hpp"
+#include "global.hpp"
+#include "input.hpp"
+#include "output.hpp"
+#include "parser.hpp"
+#include "search.hpp"
 
 using namespace std;
 

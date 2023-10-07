@@ -5,8 +5,8 @@
 #include <tuple>
 #include <vector>
 
-#include "../include/global.hpp"
-#include "../include/parser.hpp"
+#include "global.hpp"
+#include "parser.hpp"
 
 using namespace std;
 using namespace parser;

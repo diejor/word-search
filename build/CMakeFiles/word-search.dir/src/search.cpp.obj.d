@@ -90,7 +90,7 @@ CMakeFiles/word-search.dir/src/search.cpp.obj: \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_vector.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_bvector.h \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\vector.tcc \
- c:\users\diejo\utd\classes\cs2\word-search\include\global.hpp \
+ C:/Users/diejo/UTD/Classes/CS2/word-search/include/global.hpp \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\iostream \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ostream \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ios \
@@ -112,4 +112,4 @@ CMakeFiles/word-search.dir/src/search.cpp.obj: \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\ostream.tcc \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\istream \
  c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\istream.tcc \
- c:\users\diejo\utd\classes\cs2\word-search\include\search.hpp
+ C:/Users/diejo/UTD/Classes/CS2/word-search/include/search.hpp

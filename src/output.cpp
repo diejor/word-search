@@ -4,9 +4,9 @@
 #include <string>
 #include <vector>
 
-#include "../include/global.hpp"
-#include "../include/output.hpp"
-#include "../include/search.hpp"
+#include "global.hpp"
+#include "output.hpp"
+#include "search.hpp"
 
 using namespace std;
 using namespace output;

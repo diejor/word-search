@@ -3,8 +3,8 @@
 #include <tuple>
 #include <vector>
 
-#include "../include/global.hpp"
-#include "../include/search.hpp"
+#include "global.hpp"
+#include "search.hpp"
 
 using namespace std;
 using namespace search;
