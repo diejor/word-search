@@ -1,6 +1,0 @@
-# ninja log v5
-1	709	7184344826124046	CMakeFiles/word-search.dir/main.cpp.obj	fa36f41faa639d75
-711	845	7184344827459394	word-search.exe	c645377558d3eeed
-1	78	7184346542115133	build.ninja	5683b0d23725f373
-2	132	7184345751833244	C:/Users/diejo/UTD/Classes/CS2/word-search/word-search.exe	2a803409e2fcec74
-2	131	7184346762027573	C:/Users/diejo/UTD/Classes/CS2/word-search/word-search.exe	2a803409e2fcec74
