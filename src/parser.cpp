@@ -5,8 +5,8 @@
 #include <tuple>
 #include <vector>
 
-#include "global.hpp"
-#include "parser.hpp"
+#include "global.h"
+#include "parser.h"
 
 using namespace std;
 using namespace parser;
@@ -118,9 +118,9 @@ vector<string> get_token_block(ifstream &input_file, unsigned int block_size) {
     If an empty vector of strings is passed, an empty vector of vectors of chars
    should be returned.
 */
-vector<vector<char>> soup_str_to_char(vector<string> soup_str) {
+vector<vector<char>> soup_str_to_char(const vector<string>& soup_str) {
     vector<vector<char>> soup_char;
-    for (string line : soup_str) {
+    for (const string& line : soup_str) {
         vector<char> line_char;
         for (char letter : line) {
             line_char.push_back(letter);

@@ -4,9 +4,9 @@
 #include <string>
 #include <vector>
 
-#include "global.hpp"
-#include "output.hpp"
-#include "search.hpp"
+#include "global.h"
+#include "output.h"
+#include "search.h"
 
 using namespace std;
 using namespace output;
@@ -16,7 +16,7 @@ void output::separate() { cout << endl; }
 void output::soup(vector<vector<char>> soup) {
     cout << "rows: " << soup.size() << " x "
          << "cols: " << soup[0].size() << endl;
-    for (vector<char> row : soup) {
+    for (const vector<char>& row : soup) {
         for (char letter : row) {
             cout << letter << " ";
         }
@@ -25,9 +25,9 @@ void output::soup(vector<vector<char>> soup) {
 }
 
 int max_movie_length(
-    vector<tuple<string, int, int, search::Direction>> movies) {
+    const vector<tuple<string, int, int, search::Direction>>& movies) {
     int max_length = 0;
-    for (tuple<string, int, int, search::Direction> movie : movies) {
+    for (const tuple<string, int, int, search::Direction>& movie : movies) {
         string movie_title = search::get_title(movie);
         if (movie_title.length() > max_length) {
             max_length = movie_title.length();
@@ -36,8 +36,8 @@ int max_movie_length(
     return max_length;
 }
 
-void format_result(int max_movie_len, string movie_title, string row,
-                   string col, string direction) {
+void format_result(int max_movie_len, const string& movie_title, const string& row,
+                   const string& col, const string& direction) {
     const int row_len = 10;
     const int col_len = 10;
     const int direction_len = 15;
@@ -52,7 +52,7 @@ void format_result(int max_movie_len, string movie_title, string row,
    movies parameter type.
 */
 void output::movies_found(
-    vector<tuple<string, int, int, search::Direction>> movies) {
+    const vector<tuple<string, int, int, search::Direction>>& movies) {
     int max_movie_len = max_movie_length(movies) + 2;
     format_result(max_movie_len, "Movies Found", "Row", "Column", "Direction");
     for (tuple<string, int, int, search::Direction> movie : movies) {
@@ -67,10 +67,20 @@ void output::movies_found(
     }
 }
 
-void output::movies_not_found(vector<string> movies_not_found) {
+void output::movies_not_found(const vector<string>& movies_not_found) {
     cout << "Movies not found:" << endl;
-    for (string movie : movies_not_found) {
+    for (const string& movie : movies_not_found) {
         cout << movie << endl;
+    }
+}
+
+void output::soup_field(const vector<vector<int>>& soup_field) {
+    cout << "Soup Field:" << endl;
+    for (const vector<int>& row : soup_field) {
+        for (int num : row) {
+            cout << num << " ";
+        }
+        cout << endl;
     }
 }
 

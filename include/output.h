@@ -8,7 +8,7 @@
 
 #include <vector>
 
-#include "search.hpp"
+#include "search.h"
 
 #ifndef OUTPUT_HANDLER_HPP
 #define OUTPUT_HANDLER_HPP
@@ -16,8 +16,9 @@
 namespace output {
     void separate();
     void soup(vector<vector<char>> soup);
-    void movies_found(vector<tuple<string, int,int,search::Direction>> movies);
-    void movies_not_found(vector<string> movies);
+    void movies_found(const vector<tuple<string, int,int,search::Direction>>& movies);
+    void movies_not_found(const vector<string>& movies);
+    void soup_field(const vector<vector<int>>& soup_field);
     void say_goodbye();
 }
 

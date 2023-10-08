@@ -69,18 +69,22 @@ const bool SEARCH_DIR_STATE = false;
 // ------------------------------------------------------
 // =----------------- GLOBAL FUNCTIONS -----------------=
 namespace fncs {
-    void show_msg(string msg);
-    void show_msg(string msg, string arg);
-    void show_msg_noline(string msg);
-    void show_msg_noline(string msg, string arg);
-    void show_msg_doubleline(string msg);
-    void show_msg_doubleline(string msg, string arg);
+    void show_msg(const string& msg);
+    void show_msg(const string& msg, const string& arg);
+    void show_msg_noline(const string& msg);
+    void show_msg_noline(const string& msg, const string& arg);
+    void show_msg_doubleline(const string& msg);
+    void show_msg_doubleline(const string& msg, const string& arg);
 
-    bool is_str_in_vector(string str, vector<string> v);
-    vector<string> difference(vector<string> v1, vector<string> v2);
-    string trim_whitespace(string str);
-    string to_lower(string str);
-    bool contains(string str, string regex);
+    bool is_str_in_vector(const string& str, const vector<string>& v);
+    vector<string> difference(const vector<string>& v1, const vector<string>& v2);
+    string trim_whitespace(const string& str);
+    string to_lower(const string& str);
+    bool contains(const string& str, const string& regex);
+    string format_string(const string& str);
+
+    int get_row(pair<int, int> pair);
+    int get_col(pair<int, int> pair);
 }
 
 }  // namespace global

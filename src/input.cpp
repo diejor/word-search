@@ -2,10 +2,9 @@
 
 #include <fstream>
 #include <string>
-#include <vector>
 
-#include "global.hpp"
-#include "input.hpp"
+#include "global.h"
+#include "input.h"
 
 using namespace std;
 using namespace input;
@@ -13,13 +12,13 @@ using namespace input;
 namespace extensions {
 const string EXTENSIONS[] = {".txt"};
 
-bool has(string file_name, string extension) {
+bool has(const string& file_name, const string& extension) {
     return file_name.find(extension) != string::npos;
 }
 
-bool has(string file_name) {
+bool has(const string& file_name) {
     bool has_extension = false;
-    for (string extension : EXTENSIONS) {
+    for (const string& extension : EXTENSIONS) {
         if (has(file_name, extension)) {
             has_extension = true;
             break;
@@ -33,7 +32,7 @@ bool has(string file_name) {
     Basically a helper function of get_file_name_validated() that handles how
    the input is retrieved from the user.
 */
-string input::get_user_input(string msg) {
+string input::get_user_input(const string& msg) {
     string input;
     global::fncs::show_msg_noline(msg);
     getline(cin, input);

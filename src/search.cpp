@@ -3,19 +3,20 @@
 #include <tuple>
 #include <vector>
 
-#include "global.hpp"
-#include "search.hpp"
+#include "global.h"
+#include "search.h"
 
 using namespace std;
 using namespace search;
+using namespace global::fncs;
 
 
 // =----------------- Tuple helper functions -----------------=
-vector<string> search::unzip_first_componets(
-    vector<tuple<string, int, int, Direction>> movies_found) {
+vector<string> search::unzip_titles(
+        vector<tuple<string, int, int, Direction>> movies_found) {
     vector<string> movie_titles;
-    for (tuple<string, int, int, Direction> movie_result :
-         movies_found) {
+    for (tuple<string, int, int, Direction> movie_result:
+            movies_found) {
         movie_titles.push_back(get<0>(movie_result));
     }
     return movie_titles;
@@ -23,13 +24,6 @@ vector<string> search::unzip_first_componets(
 // =----------------- End of tuple helper functions -----------------=
 
 // =----------------- GETTERS -----------------=
-/*
-    Used to get the components of the direction tuple.
-*/
-int get_row(pair<int, int> dir) { return get<0>(dir); }
-
-int get_col(pair<int, int> dir) { return get<1>(dir); }
-
 /*
     Used to get the components of the result tuple.
 */
@@ -44,7 +38,7 @@ Direction search::get_direction(tuple<string, int, int, Direction> result) { ret
 // =----------------- End of GETTERS -----------------=
 
 // =--------------------------------------------------=
-// =----------------- STR conversions ----------------=
+// =----------------- string conversions ----------------=
 string str_of_loc_pair(pair<int, int> loc) {
     return to_string(get<0>(loc)) + " " + to_string(get<1>(loc));
 }
@@ -86,7 +80,7 @@ string search::str_of_direction(Direction dir) {
     }
     return dir_str;
 }
-// =----------------- End of STR conversions -----------------=
+// =----------------- End of string conversions -----------------=
 // =----------------------------------------------------------=
 
 // =----------------- ENUM-TUPLE interations -----------------=
@@ -94,7 +88,7 @@ string search::str_of_direction(Direction dir) {
     Function is_movie_in_direction uses this functon to get the direction
    components of the direction tuple.
 */
-pair<int, int> pair_of(Direction direction) {
+pair<int, int> search::pair_of(Direction direction) {
     pair<int, int> dir = {0, 0};
     if (direction != Direction::NONE) {
         dir = DIRECTION_COMPONENTS[direction];
@@ -107,7 +101,7 @@ bool compare_directions(pair<int, int> dir1, pair<int, int> dir2) {
     int col_dir1 = get_col(dir1);
     int row_dir2 = get_row(dir2);
     int col_dir2 = get_col(dir2);
-    
+
     return row_dir1 == row_dir2 && col_dir1 == col_dir2;
 }
 
@@ -127,7 +121,7 @@ bool compare_directions(Direction enum_dir, pair<int, int> pair_dir) {
 
 Direction enum_direction_of(pair<int, int> dir) {
     Direction direction = Direction::NONE;
-    for (Direction dir_compare : DIRECTIONS_ARY) {
+    for (Direction dir_compare: DIRECTIONS_ARY) {
         if (compare_directions(dir, dir_compare)) {
             direction = dir_compare;
             break;
@@ -226,7 +220,7 @@ Direction is_movie_in_location(vector<vector<char>> soup, string movie_title,
     int movie_len = movie_title.size();
 
     Direction dir_result = Direction::NONE;  // assume is not in location
-    for (Direction dir : DIRECTIONS_ARY) {
+    for (Direction dir: DIRECTIONS_ARY) {
         if (!is_possible_direction(dir, row, col, num_rows, num_cols,
                                    movie_len)) {
             continue;
@@ -237,23 +231,6 @@ Direction is_movie_in_location(vector<vector<char>> soup, string movie_title,
         }
     }
     return dir_result;
-}
-
-/*
-    This function is needed to make the pattern matching of the movie title case
-   insensitive, that way the movie title string is succesfully compared
-   one-to-one with the soup of letters.
-*/
-string format_movie(string movie_title) {
-    string formatted = "";
-    for (char letter : movie_title) {
-        if (isalpha(letter)) {
-            char upper_letter = toupper(letter);
-            formatted.push_back(upper_letter);
-        }
-    }
-    search::debug::movie_title_formatted(movie_title, formatted);
-    return formatted;
 }
 
 bool direction_exists(Direction direction) {
@@ -268,12 +245,12 @@ bool direction_exists(Direction direction) {
     Movie titles found are hanled by as a tuple<string, int,int,Direction> where the components are the movie title, the row where the movie title was found, the column where the movie title was found and the direction where the movie title was found correspondingly. If the movie title was not found in the soup of letters, then the tuple returned is NOT_FOUND.
 */
 tuple<string, int, int, Direction> is_movie_in_soup(vector<vector<char>> soup,
-                                            string movie_title) {
+                                                    const string& movie_title) {
     tuple<string, int, int, Direction> result = NOT_FOUND;
-    string formatted = format_movie(movie_title);
+    string formatted = global::fncs::format_string(movie_title);
 
-    int num_rows = soup.size();
-    int num_cols = soup[0].size();
+    unsigned int num_rows = soup.size();
+    unsigned int num_cols = soup[0].size();
     for (unsigned int row = 0; row < num_rows; row++) {
         for (unsigned int col = 0; col < num_cols; col++) {
             Direction dir = is_movie_in_location(soup, formatted, row, col);
@@ -286,10 +263,12 @@ tuple<string, int, int, Direction> is_movie_in_soup(vector<vector<char>> soup,
     return result;
 }
 
-bool equal(tuple<string, int, int, Direction> result1,
-           tuple<string, int, int, Direction> result2) {
-    return get<0>(result1) == get<0>(result2) && get<1>(result1) == get<1>(result2) &&
-           get<2>(result1) == get<2>(result2) && get<3>(result1) == get<3>(result2);
+bool equal(const tuple<string, int, int, Direction>& result1,
+           const tuple<string, int, int, Direction>& result2) {
+    return get_title(result1) == get_title(result2) &&
+           get_row(result1) == get_row(result2) &&
+           get_col(result1) == get_col(result2) &&
+           get_direction(result1) == get_direction(result2);
 }
 
 /*
@@ -302,12 +281,12 @@ bool equal(tuple<string, int, int, Direction> result1,
    found in the soup of letters, the first component is the row, second column
    and third direction.
 */
-vector<tuple<string, int, int, Direction>> search::movies_in_soup(vector<vector<char>> soup, vector<string> movies) {
+vector<tuple<string, int, int, Direction>> search::movies_in_soup(const vector<vector<char>>& soup, const vector<string>& movies) {
     vector<tuple<string, int, int, Direction>> movies_found;
-    for (string movie_title : movies) {
+    for (const string& movie_title: movies) {
         tuple<string, int, int, Direction> result = is_movie_in_soup(soup, movie_title);
         if (!equal(result, NOT_FOUND)) {
-            tuple<string, int, int, Direction> movie_found = result;
+            const tuple<string, int, int, Direction>& movie_found = result;
             movies_found.push_back(movie_found);
         }
     }

@@ -17,7 +17,7 @@ using namespace std;
 #define INPUT_LOADER_HPP
 
 namespace input {
-extern string get_user_input(string msg);
+extern string get_user_input(const string& msg);
 extern ifstream get_input_file();
 }  // namespace input
 

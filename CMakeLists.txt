@@ -11,6 +11,8 @@ file (GLOB_RECURSE SOURCES "${SOURCE_PATH}/*.cpp")
 
 include_directories( "${INCLUDE_PATH}" "${SOURCE_PATH}")
 
-add_executable(${TARGET} ${SOURCES})
+add_executable(${TARGET} ${SOURCES}
+        src/soup_field.cpp
+        include/soup_field.h)
 
 target_include_directories(${TARGET} PUBLIC ${INCLUDE_PATH})

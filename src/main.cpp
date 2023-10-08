@@ -17,15 +17,15 @@
 */
 
 #include <fstream>
-#include <iostream>
 #include <string>
 #include <vector>
 
-#include "global.hpp"
-#include "input.hpp"
-#include "output.hpp"
-#include "parser.hpp"
-#include "search.hpp"
+#include "global.h"
+#include "input.h"
+#include "output.h"
+#include "parser.h"
+#include "search.h"
+#include "soup_field.h"
 
 using namespace std;
 
@@ -36,7 +36,7 @@ void init_program() { welcome_user(); }
 // =---------- END OF INIT APP ----------=
 
 // =---------- RUN PROGRAM ----------=
-bool invalid_answer(string answer_lower) {
+bool invalid_answer(const string& answer_lower) {
     return !global::fncs::contains(answer_lower, "y") && !global::fncs::contains(answer_lower, "yes") &&
            !global::fncs::contains(answer_lower, "n") && !global::fncs::contains(answer_lower, "no");
 }
@@ -80,12 +80,15 @@ void run_program() {
     output::separate();
 
     vector<string> movies_title_found =
-        search::unzip_first_componets(movies_found);
+            search::unzip_titles(movies_found);
     vector<string> movies_not_found =
         global::fncs::difference(movies, movies_title_found);
 
     output::movies_not_found(movies_not_found);
     output::separate();
+
+    const vector<vector<int>>& field = soup_field::universal(soup, movies_found);
+    output::soup_field(field);
 
     ask_if_another_file();
     output::separate();
