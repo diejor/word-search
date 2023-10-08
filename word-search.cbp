@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="word-search"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="C:/Users/diejo/UTD/Classes/CS2/word-search"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/Strawberry/c/bin/gmake.exe -f &quot;C:/Users/diejo/UTD/Classes/CS2/word-search/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/Strawberry/c/bin/gmake.exe -f &quot;C:/Users/diejo/UTD/Classes/CS2/word-search/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Strawberry/c/bin/gmake.exe -f &quot;C:/Users/diejo/UTD/Classes/CS2/word-search/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Strawberry/c/bin/gmake.exe -f &quot;C:/Users/diejo/UTD/Classes/CS2/word-search/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="word-search">
+				<Option output="C:/Users/diejo/UTD/Classes/CS2/word-search/bin/word-search.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/diejo/UTD/Classes/CS2/word-search/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/diejo/UTD/Classes/CS2/word-search/include"/>
+					<Add directory="C:/Users/diejo/UTD/Classes/CS2/word-search/src"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++/mingw32"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++/backward"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/Strawberry/c/bin/gmake.exe -f &quot;C:/Users/diejo/UTD/Classes/CS2/word-search/Makefile&quot;  VERBOSE=1 word-search"/>
+					<CompileFile command="C:/Strawberry/c/bin/gmake.exe -f &quot;C:/Users/diejo/UTD/Classes/CS2/word-search/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Strawberry/c/bin/gmake.exe -f &quot;C:/Users/diejo/UTD/Classes/CS2/word-search/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Strawberry/c/bin/gmake.exe -f &quot;C:/Users/diejo/UTD/Classes/CS2/word-search/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="word-search/fast">
+				<Option output="C:/Users/diejo/UTD/Classes/CS2/word-search/bin/word-search.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/diejo/UTD/Classes/CS2/word-search/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/diejo/UTD/Classes/CS2/word-search/include"/>
+					<Add directory="C:/Users/diejo/UTD/Classes/CS2/word-search/src"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++/mingw32"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++/backward"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../include"/>
+					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/Strawberry/c/bin/gmake.exe -f &quot;C:/Users/diejo/UTD/Classes/CS2/word-search/Makefile&quot;  VERBOSE=1 word-search/fast"/>
+					<CompileFile command="C:/Strawberry/c/bin/gmake.exe -f &quot;C:/Users/diejo/UTD/Classes/CS2/word-search/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Strawberry/c/bin/gmake.exe -f &quot;C:/Users/diejo/UTD/Classes/CS2/word-search/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Strawberry/c/bin/gmake.exe -f &quot;C:/Users/diejo/UTD/Classes/CS2/word-search/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="C:/Users/diejo/UTD/Classes/CS2/word-search"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/Strawberry/c/bin/gmake.exe -f &quot;C:/Users/diejo/UTD/Classes/CS2/word-search/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/Strawberry/c/bin/gmake.exe -f &quot;C:/Users/diejo/UTD/Classes/CS2/word-search/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Strawberry/c/bin/gmake.exe -f &quot;C:/Users/diejo/UTD/Classes/CS2/word-search/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Strawberry/c/bin/gmake.exe -f &quot;C:/Users/diejo/UTD/Classes/CS2/word-search/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="C:/Users/diejo/UTD/Classes/CS2/word-search"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/Strawberry/c/bin/gmake.exe -f &quot;C:/Users/diejo/UTD/Classes/CS2/word-search/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/Strawberry/c/bin/gmake.exe -f &quot;C:/Users/diejo/UTD/Classes/CS2/word-search/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Strawberry/c/bin/gmake.exe -f &quot;C:/Users/diejo/UTD/Classes/CS2/word-search/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Strawberry/c/bin/gmake.exe -f &quot;C:/Users/diejo/UTD/Classes/CS2/word-search/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="C:/Users/diejo/UTD/Classes/CS2/word-search/include/soup_field.h">
+			<Option target="word-search"/>
+		</Unit>
+		<Unit filename="C:/Users/diejo/UTD/Classes/CS2/word-search/src/global.cpp">
+			<Option target="word-search"/>
+		</Unit>
+		<Unit filename="C:/Users/diejo/UTD/Classes/CS2/word-search/src/input.cpp">
+			<Option target="word-search"/>
+		</Unit>
+		<Unit filename="C:/Users/diejo/UTD/Classes/CS2/word-search/src/main.cpp">
+			<Option target="word-search"/>
+		</Unit>
+		<Unit filename="C:/Users/diejo/UTD/Classes/CS2/word-search/src/output.cpp">
+			<Option target="word-search"/>
+		</Unit>
+		<Unit filename="C:/Users/diejo/UTD/Classes/CS2/word-search/src/parser.cpp">
+			<Option target="word-search"/>
+		</Unit>
+		<Unit filename="C:/Users/diejo/UTD/Classes/CS2/word-search/src/search.cpp">
+			<Option target="word-search"/>
+		</Unit>
+		<Unit filename="C:/Users/diejo/UTD/Classes/CS2/word-search/src/soup_field.cpp">
+			<Option target="word-search"/>
+		</Unit>
+		<Unit filename="C:/Users/diejo/UTD/Classes/CS2/word-search/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

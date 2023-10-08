@@ -1,0 +1,23 @@
+# ninja log v5
+22	71	7184224371798480	CMakeFiles/word-search.dir/src/soup_field.cpp.obj	a8a79063eb815004
+9	515	7184253520137589	CMakeFiles/word-search.dir/src/parser.cpp.obj	e720a8ed9c493bf
+6	387	7184253518857979	CMakeFiles/word-search.dir/src/input.cpp.obj	22d6fb21f51c3001
+19	515	7184253520127609	CMakeFiles/word-search.dir/src/main.cpp.obj	bca11d7eeb551e26
+15	523	7184253520227598	CMakeFiles/word-search.dir/src/output.cpp.obj	b3b9a14a4f564c37
+12	559	7184253520577697	CMakeFiles/word-search.dir/src/search.cpp.obj	133b1066d3f8aab9
+2	417	7184253519158045	CMakeFiles/word-search.dir/src/global.cpp.obj	7097ac37cf2a2a7d
+681	824	7184230966007616	C:/Users/diejo/UTD/Classes/CS2/word-search/bin/word-search.exe	18f7e7592ba73f7a
+6	593	7184262594709717	CMakeFiles/word-search.dir/src/input.cpp.obj	22d6fb21f51c3001
+2	613	7184262594879749	CMakeFiles/word-search.dir/src/global.cpp.obj	7097ac37cf2a2a7d
+26	679	7184262595564998	CMakeFiles/word-search.dir/src/soup_field.cpp.obj	a8a79063eb815004
+10	692	7184262595705016	CMakeFiles/word-search.dir/src/output.cpp.obj	b3b9a14a4f564c37
+17	723	7184262596015088	CMakeFiles/word-search.dir/src/parser.cpp.obj	e720a8ed9c493bf
+13	728	7184262596065098	CMakeFiles/word-search.dir/src/main.cpp.obj	bca11d7eeb551e26
+21	783	7184262596605932	CMakeFiles/word-search.dir/src/search.cpp.obj	133b1066d3f8aab9
+783	931	7184262598068126	C:/Users/diejo/UTD/Classes/CS2/word-search/bin/word-search.exe	18f7e7592ba73f7a
+2	455	7184263313037494	CMakeFiles/word-search.dir/src/main.cpp.obj	bca11d7eeb551e26
+455	608	7184263314539636	C:/Users/diejo/UTD/Classes/CS2/word-search/bin/word-search.exe	18f7e7592ba73f7a
+3	397	7184265114770051	CMakeFiles/word-search.dir/src/soup_field.cpp.obj	a8a79063eb815004
+398	539	7184265116170500	C:/Users/diejo/UTD/Classes/CS2/word-search/bin/word-search.exe	18f7e7592ba73f7a
+3	425	7184267685282113	CMakeFiles/word-search.dir/src/soup_field.cpp.obj	a8a79063eb815004
+425	576	7184267686752177	C:/Users/diejo/UTD/Classes/CS2/word-search/bin/word-search.exe	18f7e7592ba73f7a
