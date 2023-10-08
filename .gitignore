@@ -1,5 +1,3 @@
-<<<<<<< HEAD
 build/
-=======
+cmake-build-debug/
 *.exe
->>>>>>> 5e09f1e2fc8621fbfb76486b3b8b13094680ab41
