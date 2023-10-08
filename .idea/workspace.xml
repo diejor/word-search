@@ -20,21 +20,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1119c218-2b0e-4747-ac23-e58bcbd4fbb7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/include/soup_field.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/soup_field.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/global.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/include/global.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/input.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/include/input.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/output.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/include/output.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/parser.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/include/parser.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/search.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/include/search.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/global.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/global.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/input.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/input.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/output.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/output.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parser.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/search.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/search.cpp" afterDir="false" />
+    <list default="true" id="1119c218-2b0e-4747-ac23-e58bcbd4fbb7" name="Changes" comment="removed reunited">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +40,18 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="9604e592-7ecf-4ef0-b001-066248e0ebc6" />
+        <option name="url" value="https://github.com/Doblegor/word-search.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -78,7 +78,7 @@
     "WebServerToolWindowFactoryState": "false",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "removed",
+    "git-widget-placeholder": "Merging removed",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/diejo/UTD/Classes/CS2/word-search/CMakeLists.txt",
     "node.js.detected.package.eslint": "true",
@@ -131,8 +131,25 @@
       <workItem from="1696717614728" duration="27000" />
       <workItem from="1696718012899" duration="874000" />
       <workItem from="1696719033638" duration="3109000" />
-      <workItem from="1696722202286" duration="2103000" />
+      <workItem from="1696722202286" duration="2802000" />
     </task>
+    <task id="LOCAL-00001" summary="removed reunited">
+      <option name="closed" value="true" />
+      <created>1696724427086</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1696724427086</updated>
+    </task>
+    <task id="LOCAL-00002" summary="removed reunited">
+      <option name="closed" value="true" />
+      <created>1696724499626</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1696724499626</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -143,5 +160,9 @@
     <isAutomaticCheckingOnLaunch value="false" />
     <isAutomaticFoundErrors value="true" />
     <isAutomaticFoundErrors value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="removed reunited" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed reunited" />
   </component>
 </project>
