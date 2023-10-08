@@ -3,11 +3,9 @@ project(word_search)
 
 set(CMAKE_CXX_STANDARD 17)
 
-set(TARGET word_search)
-
 include_directories(include)
 
-add_executable(${TARGET}
+add_executable(word_search
         include/global.h
         include/input.h
         include/output.h
