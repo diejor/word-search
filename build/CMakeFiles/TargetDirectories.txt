@@ -1,9 +1,0 @@
-C:/Users/diejo/UTD/Classes/CS2/word-search/build/CMakeFiles/word-search.dir
-C:/Users/diejo/UTD/Classes/CS2/word-search/build/CMakeFiles/package.dir
-C:/Users/diejo/UTD/Classes/CS2/word-search/build/CMakeFiles/package_source.dir
-C:/Users/diejo/UTD/Classes/CS2/word-search/build/CMakeFiles/edit_cache.dir
-C:/Users/diejo/UTD/Classes/CS2/word-search/build/CMakeFiles/rebuild_cache.dir
-C:/Users/diejo/UTD/Classes/CS2/word-search/build/CMakeFiles/list_install_components.dir
-C:/Users/diejo/UTD/Classes/CS2/word-search/build/CMakeFiles/install.dir
-C:/Users/diejo/UTD/Classes/CS2/word-search/build/CMakeFiles/install/local.dir
-C:/Users/diejo/UTD/Classes/CS2/word-search/build/CMakeFiles/install/strip.dir

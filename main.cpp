@@ -17,45 +17,47 @@
 */
 
 #include <fstream>
-#include <iostream>
 #include <string>
 #include <vector>
 
-#include "global.hpp"
-#include "input.hpp"
-#include "output.hpp"
-#include "parser.hpp"
-#include "search.hpp"
-
+#include "global.h"
+#include "input.h"
+#include "output.h"
+#include "parser.h"
+#include "search.h"
+#include "soup_field.h"
 
 using namespace std;
 
 // =---------- INIT APP ----------=
-void welcome_user() { global::show_msg(global::msgs::WELCOME); }
+void welcome_user() { global::fncs::show_msg(global::msgs::WELCOME); }
 
 void init_program() { welcome_user(); }
 // =---------- END OF INIT APP ----------=
 
 // =---------- RUN PROGRAM ----------=
-bool invalid_answer(string answer_lower) {
-    return !contains(answer_lower, "y") && !contains(answer_lower, "yes") &&
-           !contains(answer_lower, "n") && !contains(answer_lower, "no");
+bool invalid_answer(const string& answer_lower) {
+    return !global::fncs::contains(answer_lower, "y") && !global::fncs::contains(answer_lower, "yes") &&
+           !global::fncs::contains(answer_lower, "n") && !global::fncs::contains(answer_lower, "no");
 }
 
-void run_program(); // prototype for recursion
+void run_program();  // prototype for recursion
 void ask_if_another_file() {
     string answer = input::get_user_input(global::msgs::ANOTHER_SEARCH);
-    string answer_lower = global::to_lower(answer);
+    string answer_lower = global::fncs::to_lower(answer);
     do {
-        if (contains(answer_lower, "y") || contains(answer_lower, "yes")) {
+        if (global::fncs::contains(answer_lower, "y") || global::fncs::contains(answer_lower, "yes")) {
             run_program();
-        } else if (contains(answer_lower, "n") ||
-                   contains(answer_lower, "no")) {
+        }
+        else if (global::fncs::contains(answer_lower, "n") ||
+                 global::fncs::contains(answer_lower, "no")) {
             break;
-        } else {
-            global::show_msg(global::msgs::INVALID_ANSWER);
+
+        }
+        else {
+            global::fncs::show_msg(global::msgs::INVALID_ANSWER);
             answer = input::get_user_input(global::msgs::ANOTHER_SEARCH);
-            answer_lower = global::to_lower(answer);
+            answer_lower = global::fncs::to_lower(answer);
         }
     } while (invalid_answer(answer_lower));
 }
@@ -64,27 +66,29 @@ void run_program() {
     ifstream input_file = input::get_input_file();
     output::separate();
 
-    parser::assert_non_empty_file(input_file);
-    vector<vector<char>> soup = parser::soup_letter(input_file);
-    parser::assert_non_empty_file(input_file);
-    vector<string> movies = parser::movie_titles_to_search(input_file);
-    global::debug::movie_titles_to_search(movies);
+    // parse input file
+    vector<vector<char>> soup = parser::soup_letters(input_file);
+    vector<string> movies = parser::movies_to_search(input_file);
 
+    // display soup
     output::soup(soup);
     output::separate();
 
-    vector<tuple<string, tuple<int, int, search::Direction>>> movies_found =
-        search::movies_in_soup(soup, movies);
+    // search and display movies found
+    vector<tuple<string, int, int, search::Direction>> movies_found = search::movies_in_soup(soup, movies);
     output::movies_found(movies_found);
     output::separate();
 
     vector<string> movies_title_found =
-        search::unzip_first_componets(movies_found);
+            search::unzip_titles(movies_found);
     vector<string> movies_not_found =
-        global::difference(movies, movies_title_found);
+            global::fncs::difference(movies, movies_title_found);
 
     output::movies_not_found(movies_not_found);
     output::separate();
+
+    const vector<vector<int>>& field = soup_field::universal(soup, movies_found);
+    output::soup_field(field);
 
     ask_if_another_file();
     output::separate();
@@ -93,7 +97,7 @@ void run_program() {
 
 // =---------- FINALIZE APP ----------=
 void finalize_word_search() {
-    output::say_goodbye(); // :D
+    output::say_goodbye();  // :D
 }
 // =---------- END OF FINALIZE APP ----------=
 
