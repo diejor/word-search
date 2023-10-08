@@ -1,0 +1,215 @@
+Index: cmake-build-debug/.cmake/api/v1/reply/index-2023-10-07T23-43-22-0530.json
+===================================================================
+diff --git a/cmake-build-debug/.cmake/api/v1/reply/index-2023-10-07T23-43-22-0530.json b/cmake-build-debug/.cmake/api/v1/reply/index-2023-10-07T23-43-22-0530.json
+deleted file mode 100644
+--- a/cmake-build-debug/.cmake/api/v1/reply/index-2023-10-07T23-43-22-0530.json	(revision 456a5e0bb8837b89749f5709ed8785d4e0277dbc)
++++ /dev/null	(revision 456a5e0bb8837b89749f5709ed8785d4e0277dbc)
+@@ -1,108 +0,0 @@
+-{
+-	"cmake" : 
+-	{
+-		"generator" : 
+-		{
+-			"multiConfig" : false,
+-			"name" : "Ninja"
+-		},
+-		"paths" : 
+-		{
+-			"cmake" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/bin/cmake.exe",
+-			"cpack" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/bin/cpack.exe",
+-			"ctest" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/bin/ctest.exe",
+-			"root" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26"
+-		},
+-		"version" : 
+-		{
+-			"isDirty" : false,
+-			"major" : 3,
+-			"minor" : 26,
+-			"patch" : 4,
+-			"string" : "3.26.4",
+-			"suffix" : ""
+-		}
+-	},
+-	"objects" : 
+-	[
+-		{
+-			"jsonFile" : "codemodel-v2-52beb69af2ae3c1297ee.json",
+-			"kind" : "codemodel",
+-			"version" : 
+-			{
+-				"major" : 2,
+-				"minor" : 5
+-			}
+-		},
+-		{
+-			"jsonFile" : "cache-v2-0f635aef8accb1c46b0e.json",
+-			"kind" : "cache",
+-			"version" : 
+-			{
+-				"major" : 2,
+-				"minor" : 0
+-			}
+-		},
+-		{
+-			"jsonFile" : "cmakeFiles-v1-c0d8420197cec353d7e9.json",
+-			"kind" : "cmakeFiles",
+-			"version" : 
+-			{
+-				"major" : 1,
+-				"minor" : 0
+-			}
+-		},
+-		{
+-			"jsonFile" : "toolchains-v1-f8ff5826a64ac34773d0.json",
+-			"kind" : "toolchains",
+-			"version" : 
+-			{
+-				"major" : 1,
+-				"minor" : 0
+-			}
+-		}
+-	],
+-	"reply" : 
+-	{
+-		"cache-v2" : 
+-		{
+-			"jsonFile" : "cache-v2-0f635aef8accb1c46b0e.json",
+-			"kind" : "cache",
+-			"version" : 
+-			{
+-				"major" : 2,
+-				"minor" : 0
+-			}
+-		},
+-		"cmakeFiles-v1" : 
+-		{
+-			"jsonFile" : "cmakeFiles-v1-c0d8420197cec353d7e9.json",
+-			"kind" : "cmakeFiles",
+-			"version" : 
+-			{
+-				"major" : 1,
+-				"minor" : 0
+-			}
+-		},
+-		"codemodel-v2" : 
+-		{
+-			"jsonFile" : "codemodel-v2-52beb69af2ae3c1297ee.json",
+-			"kind" : "codemodel",
+-			"version" : 
+-			{
+-				"major" : 2,
+-				"minor" : 5
+-			}
+-		},
+-		"toolchains-v1" : 
+-		{
+-			"jsonFile" : "toolchains-v1-f8ff5826a64ac34773d0.json",
+-			"kind" : "toolchains",
+-			"version" : 
+-			{
+-				"major" : 1,
+-				"minor" : 0
+-			}
+-		}
+-	}
+-}
+Index: cmake-build-debug/.ninja_log
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># ninja log v5\r\n22\t71\t7184224371798480\tCMakeFiles/word-search.dir/src/soup_field.cpp.obj\ta8a79063eb815004\r\n9\t515\t7184253520137589\tCMakeFiles/word-search.dir/src/parser.cpp.obj\te720a8ed9c493bf\r\n6\t387\t7184253518857979\tCMakeFiles/word-search.dir/src/input.cpp.obj\t22d6fb21f51c3001\r\n19\t515\t7184253520127609\tCMakeFiles/word-search.dir/src/main.cpp.obj\tbca11d7eeb551e26\r\n15\t523\t7184253520227598\tCMakeFiles/word-search.dir/src/output.cpp.obj\tb3b9a14a4f564c37\r\n12\t559\t7184253520577697\tCMakeFiles/word-search.dir/src/search.cpp.obj\t133b1066d3f8aab9\r\n2\t417\t7184253519158045\tCMakeFiles/word-search.dir/src/global.cpp.obj\t7097ac37cf2a2a7d\r\n681\t824\t7184230966007616\tC:/Users/diejo/UTD/Classes/CS2/word-search/bin/word-search.exe\t18f7e7592ba73f7a\r\n6\t593\t7184262594709717\tCMakeFiles/word-search.dir/src/input.cpp.obj\t22d6fb21f51c3001\r\n2\t613\t7184262594879749\tCMakeFiles/word-search.dir/src/global.cpp.obj\t7097ac37cf2a2a7d\r\n26\t679\t7184262595564998\tCMakeFiles/word-search.dir/src/soup_field.cpp.obj\ta8a79063eb815004\r\n10\t692\t7184262595705016\tCMakeFiles/word-search.dir/src/output.cpp.obj\tb3b9a14a4f564c37\r\n17\t723\t7184262596015088\tCMakeFiles/word-search.dir/src/parser.cpp.obj\te720a8ed9c493bf\r\n13\t728\t7184262596065098\tCMakeFiles/word-search.dir/src/main.cpp.obj\tbca11d7eeb551e26\r\n21\t783\t7184262596605932\tCMakeFiles/word-search.dir/src/search.cpp.obj\t133b1066d3f8aab9\r\n783\t931\t7184262598068126\tC:/Users/diejo/UTD/Classes/CS2/word-search/bin/word-search.exe\t18f7e7592ba73f7a\r\n2\t455\t7184263313037494\tCMakeFiles/word-search.dir/src/main.cpp.obj\tbca11d7eeb551e26\r\n455\t608\t7184263314539636\tC:/Users/diejo/UTD/Classes/CS2/word-search/bin/word-search.exe\t18f7e7592ba73f7a\r\n3\t397\t7184265114770051\tCMakeFiles/word-search.dir/src/soup_field.cpp.obj\ta8a79063eb815004\r\n398\t539\t7184265116170500\tC:/Users/diejo/UTD/Classes/CS2/word-search/bin/word-search.exe\t18f7e7592ba73f7a\r\n3\t425\t7184267685282113\tCMakeFiles/word-search.dir/src/soup_field.cpp.obj\ta8a79063eb815004\r\n425\t576\t7184267686752177\tC:/Users/diejo/UTD/Classes/CS2/word-search/bin/word-search.exe\t18f7e7592ba73f7a\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/cmake-build-debug/.ninja_log b/cmake-build-debug/.ninja_log
+--- a/cmake-build-debug/.ninja_log	(revision 456a5e0bb8837b89749f5709ed8785d4e0277dbc)
++++ b/cmake-build-debug/.ninja_log	(date 1696725730311)
+@@ -1,23 +1,9 @@
+ # ninja log v5
+-22	71	7184224371798480	CMakeFiles/word-search.dir/src/soup_field.cpp.obj	a8a79063eb815004
+-9	515	7184253520137589	CMakeFiles/word-search.dir/src/parser.cpp.obj	e720a8ed9c493bf
+-6	387	7184253518857979	CMakeFiles/word-search.dir/src/input.cpp.obj	22d6fb21f51c3001
+-19	515	7184253520127609	CMakeFiles/word-search.dir/src/main.cpp.obj	bca11d7eeb551e26
+-15	523	7184253520227598	CMakeFiles/word-search.dir/src/output.cpp.obj	b3b9a14a4f564c37
+-12	559	7184253520577697	CMakeFiles/word-search.dir/src/search.cpp.obj	133b1066d3f8aab9
+-2	417	7184253519158045	CMakeFiles/word-search.dir/src/global.cpp.obj	7097ac37cf2a2a7d
+-681	824	7184230966007616	C:/Users/diejo/UTD/Classes/CS2/word-search/bin/word-search.exe	18f7e7592ba73f7a
++3	425	7184267685282113	CMakeFiles/word-search.dir/src/soup_field.cpp.obj	a8a79063eb815004
++17	723	7184262596015088	CMakeFiles/word-search.dir/src/parser.cpp.obj	e720a8ed9c493bf
+ 6	593	7184262594709717	CMakeFiles/word-search.dir/src/input.cpp.obj	22d6fb21f51c3001
+-2	613	7184262594879749	CMakeFiles/word-search.dir/src/global.cpp.obj	7097ac37cf2a2a7d
+-26	679	7184262595564998	CMakeFiles/word-search.dir/src/soup_field.cpp.obj	a8a79063eb815004
++2	455	7184263313037494	CMakeFiles/word-search.dir/src/main.cpp.obj	bca11d7eeb551e26
+ 10	692	7184262595705016	CMakeFiles/word-search.dir/src/output.cpp.obj	b3b9a14a4f564c37
+-17	723	7184262596015088	CMakeFiles/word-search.dir/src/parser.cpp.obj	e720a8ed9c493bf
+-13	728	7184262596065098	CMakeFiles/word-search.dir/src/main.cpp.obj	bca11d7eeb551e26
+ 21	783	7184262596605932	CMakeFiles/word-search.dir/src/search.cpp.obj	133b1066d3f8aab9
+-783	931	7184262598068126	C:/Users/diejo/UTD/Classes/CS2/word-search/bin/word-search.exe	18f7e7592ba73f7a
+-2	455	7184263313037494	CMakeFiles/word-search.dir/src/main.cpp.obj	bca11d7eeb551e26
+-455	608	7184263314539636	C:/Users/diejo/UTD/Classes/CS2/word-search/bin/word-search.exe	18f7e7592ba73f7a
+-3	397	7184265114770051	CMakeFiles/word-search.dir/src/soup_field.cpp.obj	a8a79063eb815004
+-398	539	7184265116170500	C:/Users/diejo/UTD/Classes/CS2/word-search/bin/word-search.exe	18f7e7592ba73f7a
+-3	425	7184267685282113	CMakeFiles/word-search.dir/src/soup_field.cpp.obj	a8a79063eb815004
++2	613	7184262594879749	CMakeFiles/word-search.dir/src/global.cpp.obj	7097ac37cf2a2a7d
+ 425	576	7184267686752177	C:/Users/diejo/UTD/Classes/CS2/word-search/bin/word-search.exe	18f7e7592ba73f7a
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"CMakePresetLoader\">{\r\n  &quot;useNewFormat&quot;: true\r\n}</component>\r\n  <component name=\"CMakeReloadState\">\r\n    <option name=\"reloaded\" value=\"true\" />\r\n  </component>\r\n  <component name=\"CMakeRunConfigurationManager\">\r\n    <generated>\r\n      <config projectName=\"word-search\" targetName=\"word-search\" />\r\n    </generated>\r\n  </component>\r\n  <component name=\"CMakeSettings\">\r\n    <configurations>\r\n      <configuration PROFILE_NAME=\"Debug\" ENABLED=\"true\" CONFIG_NAME=\"Debug\" />\r\n    </configurations>\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"1119c218-2b0e-4747-ac23-e58bcbd4fbb7\" name=\"Changes\" comment=\"removed reunited\">\r\n      <change beforePath=\"$PROJECT_DIR$/.gitignore\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.gitignore\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ClangdSettings\">\r\n    <option name=\"formatViaClangd\" value=\"false\" />\r\n  </component>\r\n  <component name=\"ExecutionTargetManager\" SELECTED_TARGET=\"CMakeBuildProfile:Debug\" />\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"main\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\"><![CDATA[{\r\n  \"lastFilter\": {\r\n  }\r\n}]]></component>\r\n  <component name=\"GithubPullRequestsUISettings\">\r\n    <option name=\"selectedUrlAndAccountId\">\r\n      <UrlAndAccount>\r\n        <option name=\"accountId\" value=\"9604e592-7ecf-4ef0-b001-066248e0ebc6\" />\r\n        <option name=\"url\" value=\"https://github.com/Doblegor/word-search.git\" />\r\n      </UrlAndAccount>\r\n    </option>\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectApplicationVersion\">\r\n    <option name=\"ide\" value=\"CLion\" />\r\n    <option name=\"majorVersion\" value=\"2023\" />\r\n    <option name=\"minorVersion\" value=\"2.2\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;customColor&quot;: &quot;&quot;,\r\n  &quot;associatedIndex&quot;: 3\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2WSEWINj54vECsTOl08G98GkjHH\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"RunOnceActivity.cidr.known.project.marker\": \"true\",\r\n    \"WebServerToolWindowFactoryState\": \"false\",\r\n    \"cf.first.check.clang-format\": \"false\",\r\n    \"cidr.known.project.marker\": \"true\",\r\n    \"git-widget-placeholder\": \"Merging removed\",\r\n    \"ignore.virus.scanning.warn.message\": \"true\",\r\n    \"last_opened_file_path\": \"C:/Users/diejo/UTD/Classes/CS2/word-search/CMakeLists.txt\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"settings.editor.selected.configurable\": \"preferences.pluginManager\",\r\n    \"structure.view.defaults.are.configured\": \"true\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\diejo\\UTD\\Classes\\CS2\\word-search\\src\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"CMake Application.word-search\">\r\n    <configuration name=\"word-search\" type=\"CMakeListConfigurationType\" factoryName=\"CMakeListConfigurationFactory\" temporary=\"true\">\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration default=\"true\" type=\"CMakeRunConfiguration\" factoryName=\"Application\" REDIRECT_INPUT=\"false\" ELEVATE=\"false\" USE_EXTERNAL_CONSOLE=\"false\" EMULATE_TERMINAL=\"false\" PASS_PARENT_ENVS_2=\"true\">\r\n      <method v=\"2\">\r\n        <option name=\"com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"word-search\" type=\"CMakeRunConfiguration\" factoryName=\"Application\" REDIRECT_INPUT=\"false\" ELEVATE=\"false\" USE_EXTERNAL_CONSOLE=\"false\" EMULATE_TERMINAL=\"false\" PASS_PARENT_ENVS_2=\"true\" PROJECT_NAME=\"word-search\" TARGET_NAME=\"word-search\" CONFIG_NAME=\"Debug\" RUN_TARGET_PROJECT_NAME=\"word-search\" RUN_TARGET_NAME=\"word-search\">\r\n      <method v=\"2\">\r\n        <option name=\"com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <list>\r\n      <item itemvalue=\"CMake Application.word-search\" />\r\n      <item itemvalue=\"CMake Debug.word-search\" />\r\n    </list>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"CMake Debug.word-search\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"1119c218-2b0e-4747-ac23-e58bcbd4fbb7\" name=\"Changes\" comment=\"\" />\r\n      <created>1696717612626</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1696717612626</updated>\r\n      <workItem from=\"1696717614728\" duration=\"27000\" />\r\n      <workItem from=\"1696718012899\" duration=\"874000\" />\r\n      <workItem from=\"1696719033638\" duration=\"3109000\" />\r\n      <workItem from=\"1696722202286\" duration=\"2802000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"removed reunited\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1696724427086</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1696724427086</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"removed reunited\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1696724499626</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1696724499626</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"3\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"VCPKGProject\">\r\n    <isAutomaticEditVcpkgJson value=\"false\" />\r\n    <isAutomaticCheckingOnLaunch value=\"false\" />\r\n    <isAutomaticFoundErrors value=\"true\" />\r\n    <isAutomaticFoundErrors value=\"true\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"removed reunited\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"removed reunited\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 456a5e0bb8837b89749f5709ed8785d4e0277dbc)
++++ b/.idea/workspace.xml	(date 1696725730614)
+@@ -21,8 +21,10 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="1119c218-2b0e-4747-ac23-e58bcbd4fbb7" name="Changes" comment="removed reunited">
+-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2023-10-07T23-43-22-0530.json" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -36,15 +38,15 @@
+   <component name="Git.Settings">
+     <option name="RECENT_BRANCH_BY_REPOSITORY">
+       <map>
+-        <entry key="$PROJECT_DIR$" value="main" />
++        <entry key="$PROJECT_DIR$" value="feature" />
+       </map>
+     </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+-  "lastFilter": {
++  <component name="GitHubPullRequestSearchHistory">{
++  &quot;lastFilter&quot;: {
+   }
+-}]]></component>
++}</component>
+   <component name="GithubPullRequestsUISettings">
+     <option name="selectedUrlAndAccountId">
+       <UrlAndAccount>
+@@ -78,7 +80,7 @@
+     "WebServerToolWindowFactoryState": "false",
+     "cf.first.check.clang-format": "false",
+     "cidr.known.project.marker": "true",
+-    "git-widget-placeholder": "Merging removed",
++    "git-widget-placeholder": "removed",
+     "ignore.virus.scanning.warn.message": "true",
+     "last_opened_file_path": "C:/Users/diejo/UTD/Classes/CS2/word-search/CMakeLists.txt",
+     "node.js.detected.package.eslint": "true",
+@@ -163,6 +165,8 @@
+   </component>
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="removed reunited" />
+-    <option name="LAST_COMMIT_MESSAGE" value="removed reunited" />
++    <MESSAGE value="cleaning working space" />
++    <MESSAGE value="merging" />
++    <option name="LAST_COMMIT_MESSAGE" value="merging" />
+   </component>
+ </project>
+\ No newline at end of file
