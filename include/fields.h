@@ -8,16 +8,53 @@
 #include <string>
 #include <tuple>
 #include <vector>
+#include <cmath>
 
 #include "global.h"
-#include "soup_field.h"
+#include "soup_fields.h"
 #include "search.h"
+#include "ppm_stream.h"
 
 
 using namespace std;
 using namespace global::fncs;
 
-namespace soup_field {
+namespace soup_fields {
+
+    int round(double x) {
+        return lround(x + 0.5);
+    }
+
+    int get_min_end(const vector<vector<int>> &soup_field) {
+        int max_weight = 0;
+        int min_weight = 0;
+        for (const vector<int> &row: soup_field) {
+            for (int weight: row) {
+                if (weight > max_weight) {
+                    max_weight = weight;
+                }
+                if (weight < min_weight) {
+                    min_weight = weight;
+                }
+            }
+        }
+        return min(max_weight, min_weight);
+    }
+
+    int sigmoid(int x, int lambda, int range) {
+        return round(range / (1 + exp(lambda * -x)));
+    }
+
+    vector<vector<int>> heat_map_of(const vector<vector<int>> &soup_field) {
+        int lambda = 3 / get_min_end(soup_field);
+        vector<vector<int>> heat_map(soup_field);
+        for (vector<int> &row: heat_map) {
+            for (int &weight: row) {
+                weight = sigmoid(weight, lambda, ppm_stream::MAX_COLOR);
+            }
+        }
+        return heat_map;
+    }
 
     unsigned int dist(pair<int, int> p1, pair<int, int> p2) {
         unsigned int x = abs(get_row(p1) - get_row(p2));
@@ -39,7 +76,7 @@ namespace soup_field {
         return max(row_dist, col_dist);
     }
 
-    void place_letter(vector <vector<int>> &soup_field, pair<int, int> let_loc, bool existential) {
+    void place_letter(vector<vector<int>> &soup_field, pair<int, int> let_loc, bool existential) {
         if (existential) {
             soup_field[get_row(let_loc)][get_col(let_loc)] += 1;
             return;
@@ -60,7 +97,7 @@ namespace soup_field {
     }
 
     void
-    place_movie(vector <vector<int>> &soup_field, const string &title_formatted, int row, int col, pair<int, int> dir,
+    place_movie(vector<vector<int>> &soup_field, const string &title_formatted, int row, int col, pair<int, int> dir,
                 bool existential) {
         for (int let_idx = 0; let_idx < title_formatted.size(); let_idx++) {
             int let_row = row + let_idx * get_row(dir);
@@ -70,20 +107,22 @@ namespace soup_field {
         }
     }
 
-    vector <vector<int>> init_field(const unsigned int rows, const unsigned int cols) {
-        vector <vector<int>> soup_field(rows, vector<int>(cols, 0));
+    vector<vector<int>> init_field(const unsigned int rows, const unsigned int cols) {
+        vector<vector<int>> soup_field(rows, vector<int>(cols, 0));
         return soup_field;
     }
 
-/*
-    The soup field is a matrix of integers that represents the graviotational field of the soup. It is used to then multiply the field by the weight of the letters which will be used to determinate the density of the soup. Used to create heat maps of the soup.
-*/
-    vector <vector<int>> universal(
-            const vector <vector<char>> &soup,
-            const vector <tuple<string, int, int, search::Direction>> &movies_found, bool existential = false) {
+    /*
+     * Universal soup field uses integer between negative and positive numbers to represent the "contribution" of each letter of found movies to that particular location in the soup.
+     *
+     * It will be used to create heat maps of the soup of letters.
+     */
+    vector<vector<int>> universal(
+            const vector<vector<char>> &soup,
+            const vector<tuple<string, int, int, search::Direction>> &movies_found, bool existential = false) {
         unsigned int rows = soup.size();
         unsigned int cols = soup[0].size();
-        vector <vector<int>> soup_field = init_field(rows, cols);
+        vector<vector<int>> soup_field = init_field(rows, cols);
 
         for (const tuple<string, int, int, search::Direction> &movie: movies_found) {
             string title = search::get_title(movie);
@@ -100,9 +139,14 @@ namespace soup_field {
         return soup_field;
     }
 
-    vector <vector<int>> existential(
-            const vector <vector<char>> &soup,
-            const vector <tuple<string, int, int, search::Direction>> &movies_found) {
+    /*
+     * Used to create the existential soup field. An existential field only adds 1 to the location of the letter in the soup. Mainly for testing purposes.
+     *
+     * Note that the difference with its counterpart function universal() is by the last boolean parameter existential that splits the place_letter() function into two different functions.
+     */
+    vector<vector<int>> existential(
+            const vector<vector<char>> &soup,
+            const vector<tuple<string, int, int, search::Direction>> &movies_found) {
         return universal(soup, movies_found, true);
     }
 
