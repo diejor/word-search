@@ -23,26 +23,31 @@
 using namespace std;
 
 namespace parser {
-    namespace debug {
-        void is_empty_file(bool is_empty);
-        void ignoring_line(string line);
-        void token_line(string token_line);
-        void soup_of_letters_dim(int rows, int cols);
-        void soup_of_letters(vector<vector<char>> soup_of_letters);
-        void movies_to_search(vector<string> movie_titles_to_search);
-    }
+namespace debug {
+void is_empty_file(bool is_empty);
 
-    namespace error {
-        void empty_file();
-    }
+void ignoring_line(string line);
 
-    const char NOT_TOKENS[] = {'#', '\n'};
+void token_line(string token_line);
 
-    bool is_comment_line(ifstream &input_file) { return input_file.peek() == '#'; }
+void soup_of_letters_dim(int rows, int cols);
 
-    bool is_empty_line(ifstream &input_file) { return input_file.peek() == '\n'; }
+void soup_of_letters(vector<vector<char>> soup_of_letters);
 
-    bool is_file_empty(ifstream &input_file) { return input_file.peek() == EOF; }
+void movies_to_search(vector<string> movie_titles_to_search);
+}  // namespace debug
+
+namespace error {
+void empty_file();
+}
+
+const char NOT_TOKENS[] = {'#', '\n'};
+
+bool is_comment_line(ifstream &input_file) { return input_file.peek() == '#'; }
+
+bool is_empty_line(ifstream &input_file) { return input_file.peek() == '\n'; }
+
+bool is_file_empty(ifstream &input_file) { return input_file.peek() == EOF; }
 
 /*
     This function defines what is a token line which is any line that the first
@@ -52,15 +57,15 @@ namespace parser {
    file is at EOF it is considered a token line (see consume_file function
    documentation for more details of it's impotance).
 */
-    bool is_token_line(ifstream &input_file) {
-        char first_line_char = input_file.peek();
-        bool is_token_line = true;  // assert the first char is not a NOT_TOKENS char
-        for (char not_token:
-                NOT_TOKENS) {  // check universally for all NOT_TOKENS chars
-            is_token_line = is_token_line && (first_line_char != not_token);
-        }
-        return is_token_line;
+bool is_token_line(ifstream &input_file) {
+    char first_line_char = input_file.peek();
+    bool is_token_line = true;  // assert the first char is not a NOT_TOKENS char
+    for (char not_token :
+         NOT_TOKENS) {  // check universally for all NOT_TOKENS chars
+        is_token_line = is_token_line && (first_line_char != not_token);
     }
+    return is_token_line;
+}
 
 /*
     This function is called to assert that the internal pointer of the ifstream
@@ -75,11 +80,11 @@ namespace parser {
    feature, its a nightmare in my opinion, I decided to just assume that the
    input file will always have the expected two blocks of tokens.
 */
-    void assert_non_empty_file(ifstream &input_file) {
-        if (is_file_empty(input_file)) {
-            error::empty_file();
-        }
+void assert_non_empty_file(ifstream &input_file) {
+    if (is_file_empty(input_file)) {
+        error::empty_file();
     }
+}
 
 /*
     A helper function for get_next_token_line. All comment and empty lines that
@@ -88,37 +93,37 @@ namespace parser {
     One result of the state of the ifstream file passed, the function always
    advances it's internal pointer to the next token line.
 */
-    void advance_to_token(ifstream &input_file) {
-        string line;
-        while (!is_token_line(input_file)) {
-            getline(input_file, line);
-            parser::debug::ignoring_line(line);
-        }
+void advance_to_token(ifstream &input_file) {
+    string line;
+    while (!is_token_line(input_file)) {
+        getline(input_file, line);
+        parser::debug::ignoring_line(line);
     }
+}
 
 /*
     This function is used for to read lines fom the blocks of tokens.
 
 */
-    string get_next_token_line(ifstream &input_file) {
-        advance_to_token(input_file);
-        string token_line;
-        getline(input_file, token_line);
-        parser::debug::token_line(token_line);
-        return token_line;
-    }
+string get_next_token_line(ifstream &input_file) {
+    advance_to_token(input_file);
+    string token_line;
+    getline(input_file, token_line);
+    parser::debug::token_line(token_line);
+    return token_line;
+}
 
 /*
     This function is used to get the rows of the soup.
 */
-    vector<string> get_token_block(ifstream &input_file, unsigned int block_size) {
-        vector<string> token_block;
-        while (token_block.size() < block_size) {
-            string token_line = get_next_token_line(input_file);
-            token_block.push_back(token_line);
-        }
-        return token_block;
+vector<string> get_token_block(ifstream &input_file, unsigned int block_size) {
+    vector<string> token_block;
+    while (token_block.size() < block_size) {
+        string token_line = get_next_token_line(input_file);
+        token_block.push_back(token_line);
     }
+    return token_block;
+}
 
 /*
     Because the parser read the rows of the soup of letters as strings
@@ -142,17 +147,17 @@ namespace parser {
     If an empty vector of strings is passed, an empty vector of vectors of chars
    should be returned.
 */
-    vector<vector<char>> soup_str_to_char(const vector<string> &soup_str) {
-        vector<vector<char>> soup_char;
-        for (const string &line: soup_str) {
-            vector<char> line_char;
-            for (char letter: line) {
-                line_char.push_back(letter);
-            }
-            soup_char.push_back(line_char);
+vector<vector<char>> soup_str_to_char(const vector<string> &soup_str) {
+    vector<vector<char>> soup_char;
+    for (const string &line : soup_str) {
+        vector<char> line_char;
+        for (char letter : line) {
+            line_char.push_back(letter);
         }
-        return soup_char;
+        soup_char.push_back(line_char);
     }
+    return soup_char;
+}
 
 /*
     It's expected to be the first parser function called to read tokens from the
@@ -160,16 +165,16 @@ namespace parser {
    of the soup of letters and then reads the subsequent lines to form the soup
    of letters.
 */
-    vector<vector<char>> soup_letters(ifstream &input_file) {
-        string soup_dim_line = get_next_token_line(input_file);
-        int num_rows = stoi(soup_dim_line);
-        int num_cols = stoi(soup_dim_line);
-        vector<string> soup_str = get_token_block(input_file, num_rows);
-        vector<vector<char>> soup = soup_str_to_char(soup_str);
-        debug::soup_of_letters(soup);
-        debug::soup_of_letters_dim(num_rows, num_cols);
-        return soup;
-    }
+vector<vector<char>> soup_letters(ifstream &input_file) {
+    string soup_dim_line = get_next_token_line(input_file);
+    int num_rows = stoi(soup_dim_line);
+    int num_cols = stoi(soup_dim_line);
+    vector<string> soup_str = get_token_block(input_file, num_rows);
+    vector<vector<char>> soup = soup_str_to_char(soup_str);
+    debug::soup_of_letters(soup);
+    debug::soup_of_letters_dim(num_rows, num_cols);
+    return soup;
+}
 
 /*
     This function is used to read the movie titles to search tokens. Notice that
@@ -177,24 +182,24 @@ namespace parser {
    parameter which means that the file will be consumed after this function is
    called.
 */
-    vector<string> consume_file(ifstream &input_file) {
-        vector<string> token_block;
-        while (!is_file_empty(input_file)) {
-            string token_line = get_next_token_line(input_file);
-            token_block.push_back(token_line);
-        }
-        parser::debug::is_empty_file(true);
-
-        // The last token line is always an empty line. To see this read the
-        // definition of a token line in is_token_line function. Consequently, when
-        // an empty file is read, it returns an empty string which has to be
-        // removed.
-        if (token_block.size() > 0) {
-            token_block.pop_back();
-        }
-
-        return token_block;
+vector<string> consume_file(ifstream &input_file) {
+    vector<string> token_block;
+    while (!is_file_empty(input_file)) {
+        string token_line = get_next_token_line(input_file);
+        token_block.push_back(token_line);
     }
+    parser::debug::is_empty_file(true);
+
+    // The last token line is always an empty line. To see this read the
+    // definition of a token line in is_token_line function. Consequently, when
+    // an empty file is read, it returns an empty string which has to be
+    // removed.
+    if (token_block.size() > 0) {
+        token_block.pop_back();
+    }
+
+    return token_block;
+}
 
 /*
     It is assumed that before this function is called, the soup block of tokens
@@ -206,70 +211,70 @@ namespace parser {
     One concern to be aware of is that this function essentially consumes the
    rest of the input file.
 */
-    vector<string> movies_to_search(ifstream &input_file) {
-        vector<string> movie_titles_to_search = consume_file(input_file);
-        return movie_titles_to_search;
-    }
+vector<string> movies_to_search(ifstream &input_file) {
+    vector<string> movie_titles_to_search = consume_file(input_file);
+    return movie_titles_to_search;
+}
 
 // ----------------------------------------
 // =--------------- DEBUG  ---------------=
-    namespace debug {
-        void is_empty_file(bool is_empty) {
-            if (global::debug_flags::EMPTY_FILE) {
-                global::fncs::show_msg("DEBUG: is file empty: ", is_empty ? "true" : "false");
-            }
-        }
-
-        void ignoring_line(string line) {
-            if (global::debug_flags::IGNORING_COMMENT_LINE) {
-                global::fncs::show_msg("DEBUG: ignoring line: ", line);
-            }
-        }
-
-        void token_line(string token_line) {
-            if (global::debug_flags::TOKEN_LINE) {
-                global::fncs::show_msg("DEBUG: token line: ", token_line);
-            }
-        }
-
-        void soup_of_letters_dim(int rows, int cols) {
-            if (global::debug_flags::SOUP_OF_LETTERS_DIM) {
-                global::fncs::show_msg("DEBUG: soup of letters dimensions: ",
-                                       to_string(rows) + "x" + to_string(cols));
-            }
-        }
-
-        void soup_of_letters(vector<vector<char>> soup_of_letters) {
-            if (global::debug_flags::SOUP_OF_LETTERS) {
-                global::fncs::show_msg("DEBUG: soup of letters: ");
-                for (vector<char> line: soup_of_letters) {
-                    for (char letter: line) {
-                        cout << letter << " ";
-                    }
-                    cout << endl;
-                }
-            }
-        }
-
-        void movies_to_search(vector<string> movie_titles_to_search) {
-            if (global::debug_flags::MOVIE_TITLES_TO_SEARCH) {
-                global::fncs::show_msg("DEBUG: vector of movie titles to search: ");
-                for (string movie: movie_titles_to_search) {
-                    global::fncs::show_msg(movie);
-                }
-            }
-        }
+namespace debug {
+void is_empty_file(bool is_empty) {
+    if (global::debug_flags::EMPTY_FILE) {
+        global::fncs::show_msg("DEBUG: is file empty: ", is_empty ? "true" : "false");
     }
-// =------------- END OF DEBUG -------------=
-// ------------------------------------------
+}
 
-// =--------------- ERROR  ---------------=
-    namespace error {
-        void empty_file() {
-            global::fncs::show_msg("ERROR: empty file");
-            exit(1);
+void ignoring_line(string line) {
+    if (global::debug_flags::IGNORING_COMMENT_LINE) {
+        global::fncs::show_msg("DEBUG: ignoring line: ", line);
+    }
+}
+
+void token_line(string token_line) {
+    if (global::debug_flags::TOKEN_LINE) {
+        global::fncs::show_msg("DEBUG: token line: ", token_line);
+    }
+}
+
+void soup_of_letters_dim(int rows, int cols) {
+    if (global::debug_flags::SOUP_OF_LETTERS_DIM) {
+        global::fncs::show_msg("DEBUG: soup of letters dimensions: ",
+                               to_string(rows) + "x" + to_string(cols));
+    }
+}
+
+void soup_of_letters(vector<vector<char>> soup_of_letters) {
+    if (global::debug_flags::SOUP_OF_LETTERS) {
+        global::fncs::show_msg("DEBUG: soup of letters: ");
+        for (vector<char> line : soup_of_letters) {
+            for (char letter : line) {
+                cout << letter << " ";
+            }
+            cout << endl;
         }
     }
 }
 
-#endif // PARSER_HPP
+void movies_to_search(vector<string> movie_titles_to_search) {
+    if (global::debug_flags::MOVIE_TITLES_TO_SEARCH) {
+        global::fncs::show_msg("DEBUG: vector of movie titles to search: ");
+        for (string movie : movie_titles_to_search) {
+            global::fncs::show_msg(movie);
+        }
+    }
+}
+}  // namespace debug
+   // =------------- END OF DEBUG -------------=
+   // ------------------------------------------
+
+// =--------------- ERROR  ---------------=
+namespace error {
+void empty_file() {
+    global::fncs::show_msg("ERROR: empty file");
+    exit(1);
+}
+}  // namespace error
+}  // namespace parser
+
+#endif  // PARSER_HPP

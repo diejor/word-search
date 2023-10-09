@@ -13,19 +13,21 @@
         09/30/2023 - search.cpp defined
         10/01/2023 - release version finished
     Notes:
-        Even though the project physical structure is weird because header files include both private and public implementation, it is the best I could do to prevent creating extra directories that would confuse the grader.
+        To see more information about the heat maps and the ppm asociated with it, see the ppm_stream.h file.
+        field.h defines how heat maps are created.
 */
 
 #include <fstream>
 #include <string>
 #include <vector>
 
+#include "fields.h"
 #include "global.h"
 #include "input.h"
 #include "output.h"
 #include "parser.h"
+#include "ppm_stream.h"
 #include "search.h"
-#include "soup_field.h"
 
 using namespace std;
 
@@ -36,30 +38,85 @@ void init_program() { welcome_user(); }
 // =---------- END OF INIT APP ----------=
 
 // =---------- RUN PROGRAM ----------=
-bool invalid_answer(const string& answer_lower) {
-    return !global::fncs::contains(answer_lower, "y") && !global::fncs::contains(answer_lower, "yes") &&
-           !global::fncs::contains(answer_lower, "n") && !global::fncs::contains(answer_lower, "no");
+bool answer_contains(const string &answer, const string &word) {
+    string answer_lower = global::fncs::to_lower(answer);
+    return global::fncs::contains(answer_lower, word);
+}
+
+bool invalid_answer(const string &answer_lower) {
+    return !answer_contains(answer_lower, "y") && !answer_contains(answer_lower, "n");
 }
 
 void run_program();  // prototype for recursion
-void ask_if_another_file() {
-    string answer = input::get_user_input(global::msgs::ANOTHER_SEARCH);
-    string answer_lower = global::fncs::to_lower(answer);
-    do {
-        if (global::fncs::contains(answer_lower, "y") || global::fncs::contains(answer_lower, "yes")) {
-            run_program();
-        }
-        else if (global::fncs::contains(answer_lower, "n") ||
-                 global::fncs::contains(answer_lower, "no")) {
-            break;
 
-        }
-        else {
-            global::fncs::show_msg(global::msgs::INVALID_ANSWER);
-            answer = input::get_user_input(global::msgs::ANOTHER_SEARCH);
-            answer_lower = global::fncs::to_lower(answer);
-        }
-    } while (invalid_answer(answer_lower));
+bool said_yes(const string &answer) {
+    string answer_lower = global::fncs::to_lower(answer);
+    return answer_contains(answer_lower, "y");
+}
+
+void ask_if_another(const string &msg) {
+    string answer = input::get_user_input(msg);
+    if (said_yes(answer)) {
+        run_program();
+    }
+}
+
+fields::Polarization decide_polarization_type() {
+    string answer = input::get_user_input(global::msgs::WHAT_POLARIZATION_TYPE);
+    if (answer_contains(answer, "normal"))
+        return fields::Polarization::NORMAL;
+    else if (answer_contains(answer, "complete"))
+        return fields::Polarization::COMPLETE;
+    else {
+        return fields::Polarization::NONE;
+    }
+}
+
+search::Direction decide_polarization_dir() {
+    string answer = input::get_user_input(global::msgs::WHAT_POLARIZATION_DIR);
+    if (answer_contains(answer, "se"))
+        return search::Direction::SOUTH_EAST;
+    else if (answer_contains(answer, "nw"))
+        return search::Direction::NORTH_WEST;
+    else if (answer_contains(answer, "ne"))
+        return search::Direction::NORTH_EAST;
+    else if (answer_contains(answer, "sw"))
+        return search::Direction::SOUTH_WEST;
+    else if (answer_contains(answer, "n"))
+        return search::Direction::NORTH;
+    else if (answer_contains(answer, "s"))
+        return search::Direction::SOUTH;
+    else if (answer_contains(answer, "e"))
+        return search::Direction::EAST;
+    else if (answer_contains(answer, "w"))
+        return search::Direction::WEST;
+    else
+        return search::Direction::NONE;
+}
+
+vector<vector<double>> create_soup_field(const vector<vector<char>> &soup,
+                                         const vector<tuple<string, int, int, search::Direction>> &movies_found) {
+    fields::Polarization polarization_type = fields::Polarization::NONE;
+    search::Direction polarization_dir;
+    string answer = input::get_user_input(global::msgs::ASK_IF_POLARIZED);
+    if (!said_yes(answer)) {
+        return fields::universal(soup, movies_found, search::Direction::NONE, polarization_type);
+    } else {
+        polarization_type = decide_polarization_type();
+        polarization_dir = decide_polarization_dir();
+        return fields::universal(soup, movies_found, polarization_dir, polarization_type);
+    }
+}
+
+void ask_if_heat_map(const vector<tuple<string, int, int, search::Direction>> &movies_found,
+                     const vector<vector<char>> &soup) {
+    string answer = input::get_user_input(global::msgs::ASK_IF_HEAT_MAP);
+    if (said_yes(answer)) {
+        output::separate();
+        vector<vector<double>> soup_field = create_soup_field(soup, movies_found);
+        ppm_stream::create_heat_map(soup_field);
+        ask_if_heat_map(movies_found, soup);
+    }
 }
 
 void run_program() {
@@ -80,17 +137,16 @@ void run_program() {
     output::separate();
 
     vector<string> movies_title_found =
-            search::unzip_titles(movies_found);
+        search::unzip_titles(movies_found);
     vector<string> movies_not_found =
-            global::fncs::difference(movies, movies_title_found);
+        global::fncs::difference(movies, movies_title_found);
 
     output::movies_not_found(movies_not_found);
     output::separate();
 
-    const vector<vector<int>>& field = soup_field::universal(soup, movies_found);
-    output::soup_field(field);
+    ask_if_heat_map(movies_found, soup);
 
-    ask_if_another_file();
+    ask_if_another(global::msgs::ANOTHER_SEARCH);
     output::separate();
 }
 // =---------- END OF RUN PROGRAM ----------=
