@@ -1,3 +1,0 @@
-C:/Users/diejo/UTD/Classes/CS2/word-search/cmake-build-debug/CMakeFiles/word_search.dir
-C:/Users/diejo/UTD/Classes/CS2/word-search/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/diejo/UTD/Classes/CS2/word-search/cmake-build-debug/CMakeFiles/rebuild_cache.dir
