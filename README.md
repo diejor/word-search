@@ -66,10 +66,10 @@ interpretet as c++ data types. Such information could be:
 3.  The list of words to be searched: $vector<string>$.
 
 ![Heat map of comedymovies-final.txt input with east polarization](output/images/final_east.png) 
-![North East](output/images/final_north_east.png)
-![North West](output/images/final_north_west.png)
-![North](output/images/final_north.png)
-![South East](output/images/final_south_east.png)
-![South West](output/images/final_south_west.png)
-![South](output/images/final_south.png)
-![West](output/images/final_west.png)
+![North East](./output/images/final_north_east.png)
+![North West](./output/images/final_north_west.png)
+![North](./output/images/final_north.png)
+![South East](./output/images/final_south_east.png)
+![South West](./output/images/final_south_west.png)
+![South](./output/images/final_south.png)
+![West](./output/images/final_west.png)
