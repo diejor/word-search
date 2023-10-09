@@ -59,7 +59,7 @@ I will define the parser to be a set of functions that will take as
 input the .txt file and will return all the useful information
 interpretet as c++ data types. Such information could be:
 
-1.  The entry size of the matrix $N$ and $M$: $const int N, M$.
+1.  The entry size of the matrix $N$ and $M$: $const\ int\ N, M$.
 
 2.  The declaration of the characters of the matrix: $char[N][M]$.
 
