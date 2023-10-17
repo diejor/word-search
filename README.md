@@ -65,6 +65,9 @@ interpretet as c++ data types. Such information could be:
 
 3.  The list of words to be searched: $vector<string>$.
 
+-----------------
+TODO: add definitions for the heat maps and their related ppm files generated from the movie titles search results
+
 ![Heat map of comedymovies-final.txt input with east polarization](output/images/final_east.png) 
 ![North East](./output/images/final_north_east.png)
 ![North West](./output/images/final_north_west.png)
