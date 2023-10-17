@@ -68,7 +68,7 @@ interpretet as c++ data types. Such information could be:
 -----------------
 TODO: add definitions for the heat maps and their related ppm files generated from the movie titles search results
 
-![Heat map of comedymovies-final.txt input with east polarization](output/images/final_east.png) 
+![Heat map of comedymovies-final.txt input with east polarization up](output/images/final_east.png) 
 ![North East](./output/images/final_north_east.png)
 ![North West](./output/images/final_north_west.png)
 ![North](./output/images/final_north.png)
